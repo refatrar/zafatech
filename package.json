@@ -4,7 +4,7 @@
   "private": true,
   "description": "Zafa Tech — device repair & tech services website",
   "scripts": {
-    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify && rm -rf dist && mkdir -p dist && cp -r index.html css js assets dist/",
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify && rm -rf public && mkdir -p public && cp -r index.html css js assets public/",
     "watch": "tailwindcss -i ./css/input.css -o ./css/style.css --watch"
   },
   "devDependencies": {
