@@ -1,0 +1,673 @@
+    <!-- ============================== HERO ============================== -->
+    <section id="top" class="relative overflow-hidden pb-16 pt-[calc(var(--header-h)+2.5rem)] sm:pb-20 lg:pb-28 lg:pt-[calc(var(--header-h)+4rem)]" aria-labelledby="hero-title">
+      <div class="grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
+      <svg class="pointer-events-none absolute -right-40 top-10 hidden h-[640px] w-[640px] text-brand-600/[0.05] lg:block" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><use href="#i-fleur"/></svg>
+
+      <div class="container-site relative grid items-center gap-14 min-[900px]:grid-cols-[1.05fr_1fr] min-[900px]:gap-8 lg:gap-10">
+        <div class="max-w-2xl">
+          <p class="eyebrow animate__animated animate__fadeInUp">Atelier de réparation · Paris 6e</p>
+          <h1 id="hero-title" class="animate__animated animate__fadeInUp mt-5 font-display font-extrabold leading-[1.02] text-navy-900" style="font-size:clamp(2.5rem,1.6rem + 4vw,4.75rem);animation-delay:.08s">
+            Réparé avec précision,<br />
+            <span class="relative inline-block text-brand-600">jusqu'au composant.
+              <svg class="absolute -bottom-2 left-0 h-3 w-full text-crimson-500" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9C60 3 140 2 298 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            </span>
+          </h1>
+          <p class="lead animate__animated animate__fadeInUp mt-7 max-w-xl" style="animation-delay:.16s">
+            Zafa Tech est votre atelier informatique de quartier situé Rue Littré. Nous diagnostiquons vos smartphones, ordinateurs portables, tablettes et consoles en toute transparence — puis nous les réparons avec soin, de l'écran cassé au composant défectueux sur la carte mère.
+          </p>
+          <div class="animate__animated animate__fadeInUp mt-9 flex flex-col gap-3 xs:flex-row" style="animation-delay:.24s">
+            <a href="#booking" class="btn btn-primary">Réserver une réparation<svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            <a href="#services" class="btn btn-ghost">Explorer les services</a>
+          </div>
+          <ul class="animate__animated animate__fadeIn mt-10 grid gap-3 text-sm font-medium text-navy-900/85 sm:grid-cols-3" style="animation-delay:.4s">
+            <li class="flex items-center gap-2"><span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-eye"/></svg></span>Devis avant toute intervention</li>
+            <li class="flex items-center gap-2"><span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-chip"/></svg></span>Réparations de carte mère</li>
+            <li class="flex items-center gap-2"><span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand-600 shadow-soft"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-pin"/></svg></span>Boutique sans rendez-vous, Paris 6e</li>
+          </ul>
+        </div>
+
+        <!-- Hero visual: exploded smartphone with a live diagnostic readout -->
+        <div class="hero-stage" aria-hidden="true">
+          <div class="hero-glow"></div>
+
+          <!-- logic board layer -->
+          <div class="layer layer-board">
+            <svg viewBox="0 0 200 300" class="h-full w-full" fill="none">
+              <rect x="4" y="4" width="192" height="292" rx="26" stroke="#1D4ED8" stroke-opacity=".35"/>
+              <g stroke="#22D3EE" stroke-width="1.6" stroke-linecap="round" stroke-opacity=".75">
+                <path class="trace" d="M30 40h50v40h60"/>
+                <path class="trace trace-slow" d="M30 120h40l20 20h80"/>
+                <path class="trace" d="M100 180v40h60v40"/>
+                <path class="trace trace-slow" d="M40 260v-60h40"/>
+                <path class="trace" d="M170 60v60"/>
+              </g>
+              <rect x="80" y="100" width="46" height="46" rx="6" fill="#13306A" stroke="#22D3EE" stroke-opacity=".6"/>
+              <rect x="92" y="112" width="22" height="22" rx="3" fill="#1D4ED8"/>
+              <rect x="30" y="160" width="38" height="24" rx="4" fill="#13306A" stroke="#557CF2" stroke-opacity=".6"/>
+              <rect x="130" y="200" width="40" height="28" rx="4" fill="#13306A" stroke="#557CF2" stroke-opacity=".6"/>
+              <rect x="86" y="262" width="30" height="12" rx="6" fill="#D6204E"/>
+              <g fill="#8AA8FA" fill-opacity=".8"><circle cx="30" cy="40" r="3"/><circle cx="140" cy="80" r="3"/><circle cx="170" cy="140" r="3"/><circle cx="160" cy="260" r="3"/><circle cx="40" cy="260" r="3"/></g>
+            </svg>
+          </div>
+
+          <!-- chassis layer -->
+          <div class="layer layer-frame"></div>
+
+          <!-- screen layer with diagnostic UI -->
+          <div class="layer layer-screen">
+            <div class="scan-line"></div>
+            <div class="relative flex h-full flex-col font-mono text-[9px] sm:text-[10.5px]">
+              <div class="flex items-center justify-between text-white/60">
+                <span>ZT·DIAG</span>
+                <span class="flex items-center gap-1"><span class="blink h-1.5 w-1.5 rounded-full bg-crimson-400"></span>LIVE</span>
+              </div>
+              <p class="mt-3 font-display text-[13px] font-bold leading-tight text-white sm:text-[16px]">Diagnostic de l'appareil</p>
+              <ul class="mt-3 space-y-2.5 sm:mt-4">
+                <li>
+                  <div class="flex justify-between"><span class="text-white/70">Écran</span><span class="text-signal">OK</span></div>
+                  <div class="mt-1 h-1 rounded-full bg-white/10"><div class="h-full w-full rounded-full bg-signal/80"></div></div>
+                </li>
+                <li>
+                  <div class="flex justify-between"><span class="text-white/70">Batterie</span><span class="text-white">Usure</span></div>
+                  <div class="mt-1 h-1 rounded-full bg-white/10"><div class="h-full w-[62%] rounded-full bg-brand-400"></div></div>
+                </li>
+                <li>
+                  <div class="flex justify-between"><span class="text-white/70">Connecteur de charge</span><span class="text-crimson-400">Panne</span></div>
+                  <div class="mt-1 h-1 rounded-full bg-white/10"><div class="h-full w-[28%] rounded-full bg-crimson-400"></div></div>
+                </li>
+                <li>
+                  <div class="flex justify-between"><span class="text-white/70">Carte mère</span><span class="text-white/80">Numérisation</span></div>
+                  <div class="mt-1 h-1 overflow-hidden rounded-full bg-white/10"><div class="h-full w-[45%] rounded-full bg-gradient-to-r from-brand-500 to-signal"></div></div>
+                </li>
+              </ul>
+              <div class="mt-auto rounded-xl border border-white/10 bg-white/5 p-2.5">
+                <div class="flex items-center justify-between text-white/60"><span>Prochaine étape</span><span>3/4</span></div>
+                <p class="mt-1 text-white">Quote → your approval</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- floating readout cards -->
+          <div class="float-card float-1 bottom-[4%] left-0 w-[58%] max-w-[250px] sm:bottom-[6%]">
+            <div class="flex items-center gap-2.5">
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-signal"><svg class="icon h-4 w-4"><use href="#i-diagnose"/></svg></span>
+              <div class="min-w-0">
+                <p class="text-[11px] font-semibold text-muted">Diagnostic en cours</p>
+                <p id="hero-ticker" class="truncate font-mono text-[11.5px] font-semibold text-navy-900 transition-opacity duration-300">Test du circuit de charge…</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-card float-2 right-0 top-[6%] flex items-center gap-2 sm:right-[2%]">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-crimson-500 text-white"><svg class="icon h-4 w-4"><use href="#i-check"/></svg></span>
+            <span class="text-[12px] font-semibold text-navy-900">Devis clair.<br class="sm:hidden" /> <span class="text-muted">Sans surprise.</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SERVICES ============================== -->
+    <section id="services" class="section bg-white" aria-labelledby="services-title">
+      <div class="container-site">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div class="max-w-2xl" data-reveal="fadeInUp">
+            <p class="eyebrow">Ce que nous réparons</p>
+            <h2 id="services-title" class="h-section mt-4">Des réparations du quotidien aux pannes refusées par les autres ateliers.</h2>
+          </div>
+          <p class="lead max-w-md" data-reveal="fadeInUp" data-delay="100">Choisissez une catégorie pour faire une demande, ou apportez votre appareil en boutique et nous regarderons ensemble.</p>
+        </div>
+
+        <ul class="mobile-card-rail mt-10 sm:mt-14 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+          <li class="sm:col-span-2" data-reveal="fadeInUp">
+            <article class="service-card bg-gradient-to-br from-white to-brand-50/70">
+              <span class="service-icon"><svg class="icon"><use href="#i-phone"/></svg></span>
+              <h3 class="text-xl font-bold">Réparation Smartphone</h3>
+              <p class="mt-2 max-w-md text-muted">Écrans, vitre arrière, batteries, connecteurs de charge, appareils photo, haut-parleurs et micros — ainsi que les dégâts liquides et téléphones qui ne s'allument plus.</p>
+              <a href="#booking" class="service-link" data-prefill-device="smartphone">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li class="sm:col-span-2" data-reveal="fadeInUp" data-delay="80">
+            <article class="service-card bg-gradient-to-br from-white to-brand-50/70">
+              <span class="service-icon"><svg class="icon"><use href="#i-laptop"/></svg></span>
+              <h3 class="text-xl font-bold">Réparation ordinateur portable et MacBook</h3>
+              <p class="mt-2 max-w-md text-muted">Écrans, claviers, batteries, connecteurs d'alimentation et charnières, surchauffe, plus évolutions SSD et RAM pour donner une seconde vie à votre machine.</p>
+              <a href="#booking" class="service-link" data-prefill-device="laptop">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-tablet"/></svg></span>
+              <h3 class="text-lg font-bold">Réparation tablette</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Vitre cassée, écrans tactiles, batteries fatiguées et connecteurs de charge usés.</p>
+              <a href="#booking" class="service-link" data-prefill-device="tablet">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp" data-delay="60">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-desktop"/></svg></span>
+              <h3 class="text-lg font-bold">Réparation Ordinateur Fixe</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">PC de bureau qui ne démarrent pas, rament ou nécessitent un changement/amélioration de composant.</p>
+              <a href="#booking" class="service-link" data-prefill-device="desktop">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp" data-delay="120">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-gamepad"/></svg></span>
+              <h3 class="text-lg font-bold">Réparation console de jeux</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Ports HDMI et USB, lecteurs de disques, surchauffe et problèmes de manettes.</p>
+              <a href="#booking" class="service-link" data-prefill-device="console">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp" data-delay="180">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-watch"/></svg></span>
+              <h3 class="text-lg font-bold">Réparation Montre Connectée</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Vitre d'écran, batteries et problèmes de charge sur les montres connectées les plus courantes.</p>
+              <a href="#booking" class="service-link" data-prefill-device="smartwatch">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-database"/></svg></span>
+              <h3 class="text-lg font-bold">Récupération de Données</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Récupération de vos photos et fichiers à partir de téléphones, disques durs et ordinateurs endommagés.</p>
+              <a href="#booking" class="service-link" data-prefill-device="data">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp" data-delay="60">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-solder"/></svg></span>
+              <h3 class="text-lg font-bold">Micro-soudure</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Interventions de précision sur carte mère : connecteurs, circuits d'alimentation et pistes.</p>
+              <a href="#lab" class="service-link">Voir les réparations carte mère<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp" data-delay="120">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-diagnose"/></svg></span>
+              <h3 class="text-lg font-bold">Logiciel et diagnostic</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Lenteurs, pannes, réinstallation du système, nettoyage de virus et configuration de nouveaux appareils.</p>
+              <a href="#booking" class="service-link" data-prefill-device="other">Demander de l'aide<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+          <li data-reveal="fadeInUp" data-delay="180">
+            <article class="service-card">
+              <span class="service-icon"><svg class="icon"><use href="#i-refresh"/></svg></span>
+              <h3 class="text-lg font-bold">Appareils reconditionnés</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Téléphones, ordinateurs et tablettes vérifiés et remis à neuf — demandez nos stocks disponibles.</p>
+              <a href="#refurbished" class="service-link">Voir nos reconditionnés<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== DEVICE SELECTOR ============================== -->
+    <section id="diagnose" class="section overflow-hidden" aria-labelledby="diagnose-title">
+      <div class="container-site">
+        <div class="mx-auto max-w-2xl text-center" data-reveal="fadeInUp">
+          <p class="eyebrow">Démarrage rapide</p>
+          <h2 id="diagnose-title" class="h-section mt-4">Que souhaitez-vous réparer ?</h2>
+          <p class="lead mt-4">Choisissez votre appareil, cochez les symptômes constatés, et nous les ajouterons directement à votre demande de réparation.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-[280px_1fr] lg:gap-8" data-reveal="fadeInUp" data-delay="100">
+          <div role="tablist" aria-label="Type d'appareil" aria-orientation="vertical" id="device-tabs"
+               class="-mx-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0">
+            <!-- Tabs rendered by js/app.js from the REPAIRS data -->
+          </div>
+
+          <div id="device-panel" role="tabpanel" tabindex="0" class="card relative overflow-hidden p-5 sm:p-8">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h3 id="device-panel-title" class="text-2xl font-bold">Smartphone</h3>
+              <span class="rounded-full bg-paper px-3 py-1 font-mono text-xs font-medium text-muted">Sélectionnez tout ce qui s'applique</span>
+            </div>
+            <p id="device-panel-intro" class="mt-2 text-muted"></p>
+            <div id="fault-list" class="mt-6 grid gap-2.5 sm:grid-cols-2"></div>
+            <div class="mt-7 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <p id="fault-summary" class="text-sm font-medium text-muted" aria-live="polite">Aucun symptôme sélectionné pour l'instant.</p>
+              <div class="flex flex-col gap-2 xs:flex-row">
+                <button type="button" id="fault-clear" class="btn btn-ghost min-h-[44px] px-5 text-sm">Effacer</button>
+                <button type="button" id="fault-continue" class="btn btn-primary min-h-[44px] px-5 text-sm" aria-disabled="true">Continuer vers la réservation<svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== BOARD-LEVEL LAB ============================== -->
+    <section id="lab" class="on-dark section relative overflow-hidden bg-navy-950 text-white" aria-labelledby="lab-title">
+      <div class="grid-bg-dark pointer-events-none absolute inset-0" aria-hidden="true"></div>
+      <svg class="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+        <g stroke="#22D3EE" stroke-opacity=".22" stroke-width="1.5" stroke-linecap="round">
+          <path class="trace trace-slow" d="M0 120h260l60 60h240"/>
+          <path class="trace" d="M1440 200h-300l-50 50H880"/>
+          <path class="trace trace-slow" d="M0 640h180l80-80h200"/>
+          <path class="trace" d="M1440 700h-220l-60-60h-180"/>
+        </g>
+        <g fill="#22D3EE" fill-opacity=".35"><circle cx="560" cy="180" r="4"/><circle cx="880" cy="250" r="4"/><circle cx="460" cy="560" r="4"/><circle cx="980" cy="640" r="4"/></g>
+      </svg>
+
+      <div class="container-site relative grid items-center gap-14 min-[900px]:grid-cols-2 min-[900px]:gap-12 lg:gap-20">
+        <div>
+          <p class="eyebrow" data-reveal="fadeInUp">Atelier carte mère</p>
+          <h2 id="lab-title" class="h-section mt-4 !text-white" data-reveal="fadeInUp">Quand la réparation va au-delà d'un simple changement de pièce.</h2>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/70" data-reveal="fadeInUp" data-delay="80">
+            Some faults live on the logic board itself — a damaged connector, a failed power chip, corrosion after a spill. That's where micro-soldering comes in: finding the faulty component and repairing it, instead of replacing the whole device.
+          </p>
+
+          <ul class="mt-10 grid gap-3 sm:grid-cols-2">
+            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-reveal="fadeInUp">
+              <svg class="icon mt-0.5 text-signal" aria-hidden="true"><use href="#i-chip"/></svg>
+              <div><h3 class="text-base font-semibold !text-white">Réparation de carte mère</h3><p class="mt-1 text-sm text-white/60">Recherche de pannes sur les cartes qui ne s'allument pas, qui redémarrent en boucle ou n'affichent rien.</p></div>
+            </li>
+            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-reveal="fadeInUp" data-delay="60">
+              <svg class="icon mt-0.5 text-signal" aria-hidden="true"><use href="#i-solder"/></svg>
+              <div><h3 class="text-base font-semibold !text-white">Micro-soudure</h3><p class="mt-1 text-sm text-white/60">Travail précis sur composants sous grossissement.</p></div>
+            </li>
+            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-reveal="fadeInUp" data-delay="120">
+              <svg class="icon mt-0.5 text-signal" aria-hidden="true"><use href="#i-plug"/></svg>
+              <div><h3 class="text-base font-semibold !text-white">Réparation de connecteurs</h3><p class="mt-1 text-sm text-white/60">Ports de charge, connecteurs FPC, prises HDMI et USB.</p></div>
+            </li>
+            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-reveal="fadeInUp" data-delay="180">
+              <svg class="icon mt-0.5 text-signal" aria-hidden="true"><use href="#i-zap"/></svg>
+              <div><h3 class="text-base font-semibold !text-white">Pannes de circuit de charge</h3><p class="mt-1 text-sm text-white/60">Appareils qui ne chargent pas même avec un nouveau port ou une nouvelle batterie.</p></div>
+            </li>
+            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-reveal="fadeInUp">
+              <svg class="icon mt-0.5 text-signal" aria-hidden="true"><use href="#i-droplet"/></svg>
+              <div><h3 class="text-base font-semibold !text-white">Dégât des eaux</h3><p class="mt-1 text-sm text-white/60">Nettoyage, traitement de la corrosion et réparation de composants.</p></div>
+            </li>
+            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-reveal="fadeInUp" data-delay="60">
+              <svg class="icon mt-0.5 text-signal" aria-hidden="true"><use href="#i-database"/></svg>
+              <div><h3 class="text-base font-semibold !text-white">Récupération de données matérielle</h3><p class="mt-1 text-sm text-white/60">Faire revivre une carte assez longtemps pour récupérer vos données.</p></div>
+            </li>
+          </ul>
+
+          <p class="mt-8 flex items-start gap-2.5 text-sm text-white/60" data-reveal="fadeIn">
+            <svg class="icon h-5 w-5 text-crimson-400" aria-hidden="true"><use href="#i-alert"/></svg>
+            Toutes les cartes ne peuvent pas être sauvées. Nous vous le dirons honnêtement après diagnostic — avant tout engagement.
+          </p>
+        </div>
+
+        <!-- Inspection lens visual -->
+        <div class="relative mx-auto w-full max-w-[460px]" data-reveal="zoomIn" aria-hidden="true">
+          <div class="lens">
+            <svg viewBox="0 0 400 400" class="absolute inset-0 h-full w-full" fill="none">
+              <g stroke="#557CF2" stroke-opacity=".55" stroke-width="3">
+                <path d="M40 120h110l30 30h180"/><path d="M40 280h90l40-40h60"/><path d="M230 240h130"/><path d="M200 40v80"/><path d="M260 360v-60"/>
+              </g>
+              <g stroke="#22D3EE" stroke-width="3" stroke-linecap="round"><path class="trace" d="M180 150h180"/><path class="trace trace-slow" d="M200 40v80"/></g>
+              <rect x="150" y="160" width="100" height="70" rx="6" fill="#0F2757" stroke="#8AA8FA" stroke-opacity=".6" stroke-width="2"/>
+              <g fill="#B9CCFE" fill-opacity=".6">
+                <rect x="160" y="150" width="8" height="10" rx="1"/><rect x="178" y="150" width="8" height="10" rx="1"/><rect x="196" y="150" width="8" height="10" rx="1"/><rect x="214" y="150" width="8" height="10" rx="1"/><rect x="232" y="150" width="8" height="10" rx="1"/>
+                <rect x="160" y="230" width="8" height="10" rx="1"/><rect x="178" y="230" width="8" height="10" rx="1"/><rect x="196" y="230" width="8" height="10" rx="1"/><rect x="214" y="230" width="8" height="10" rx="1"/><rect x="232" y="230" width="8" height="10" rx="1"/>
+              </g>
+              <rect x="90" y="300" width="26" height="14" rx="2" fill="#D6204E"/><rect x="300" y="90" width="26" height="14" rx="2" fill="#1D4ED8"/><rect x="310" y="280" width="16" height="30" rx="2" fill="#1D4ED8"/>
+              <g stroke="#22D3EE" stroke-opacity=".7" stroke-width="1.2"><path d="M200 0v400M0 200h400"/><circle cx="200" cy="200" r="70" stroke-dasharray="4 6"/></g>
+            </svg>
+          </div>
+          <div class="absolute -left-2 top-8 rounded-xl border border-signal/30 bg-navy-900/90 px-3 py-2 font-mono text-[11px] text-signal shadow-glow backdrop-blur sm:-left-6">U2 · power IC<br /><span class="text-white/60">inspecting</span></div>
+          <div class="absolute -right-2 bottom-10 rounded-xl border border-crimson-400/40 bg-navy-900/90 px-3 py-2 font-mono text-[11px] text-crimson-400 backdrop-blur sm:-right-6">J1 · charge port<br /><span class="text-white/60">reflow needed</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== WHY ZAFA TECH ============================== -->
+    <section id="why" class="section" aria-labelledby="why-title">
+      <div class="container-site">
+        <div class="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <div class="lg:sticky lg:top-28 lg:self-start">
+            <p class="eyebrow" data-reveal="fadeInUp">Pourquoi Zafa Tech</p>
+            <h2 id="why-title" class="h-section mt-4" data-reveal="fadeInUp">Un vrai atelier, de vraies personnes et des réponses franches.</h2>
+            <p class="lead mt-5" data-reveal="fadeInUp" data-delay="80">Nous sommes un atelier local du 6e arrondissement — pas un centre d'appels. Vous pouvez passer, voir qui répare votre appareil et poser des questions.</p>
+            <figure class="card mt-8 overflow-hidden p-2" data-reveal="fadeInUp" data-delay="120">
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/zafatech-storefront.webp" width="470" height="510" loading="lazy" decoding="async"
+                   alt="The Zafa Tech shop front on Rue Littré: navy façade with a white sign listing repairs, accessories, photocopying and printing, and a window full of phone accessories."
+                   class="aspect-[4/3] w-full rounded-[1.25rem] object-cover object-top" />
+              <figcaption class="flex items-center justify-between gap-3 px-3 py-3 text-sm">
+                <span class="font-semibold text-navy-900">18 Rue Littré, 75006 Paris</span>
+                <a class="inline-flex items-center gap-1 font-semibold text-brand-700 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=18+Rue+Littr%C3%A9+75006+Paris" target="_blank" rel="noopener">Itinéraire<svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </figcaption>
+            </figure>
+          </div>
+
+          <ul class="grid gap-4 sm:grid-cols-2">
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-diagnose"/></svg></span>
+              <h3 class="text-lg font-bold">Diagnostic d'abord</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Nous trouvons la cause réelle avant de recommander quoi que ce soit — vous payez la bonne réparation, pas une supposition.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp" data-delay="60">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-eye"/></svg></span>
+              <h3 class="text-lg font-bold">Devis transparents</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Vous obtenez un prix clair et une explication au préalable. Aucune réparation n'est effectuée sans votre accord.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-box"/></svg></span>
+              <h3 class="text-lg font-bold">Pièces de qualité</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Nous vous expliquons les options de pièce disponibles pour votre modèle afin que vous puissiez choisir en toute connaissance.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp" data-delay="60">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-tool"/></svg></span>
+              <h3 class="text-lg font-bold">Outils professionnels</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Équipement d'atelier adapté pour tout, des échanges d'écran à la soudure sur carte mère.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-message"/></svg></span>
+              <h3 class="text-lg font-bold">Communication claire</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Mises à jour par téléphone ou par e-mail — selon votre préférence — en langage clair, sans jargon.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp" data-delay="60">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-shield"/></svg></span>
+              <h3 class="text-lg font-bold">Warranty &amp; support</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Les réparations sont couvertes par notre garantie : <span class="rounded bg-crimson-50 px-1 font-mono text-[0.85em] text-crimson-600">[Warranty period &amp; terms]</span>.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-calendar"/></svg></span>
+              <h3 class="text-lg font-bold">Réservation facile</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Envoyez une demande en ligne, appelez-nous ou passez sans rendez-vous pendant les horaires d'ouverture.</p>
+            </li>
+            <li class="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift" data-reveal="fadeInUp" data-delay="60">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-heart"/></svg></span>
+              <h3 class="text-lg font-bold">Priorité au client</h3>
+              <p class="mt-2 text-[0.95rem] text-muted">Si une réparation ne vaut pas la peine, nous vous le dirons — et nous vous aiderons à trouver l'option la plus sensée.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== HOW IT WORKS ============================== -->
+    <section id="process" class="section bg-white" aria-labelledby="process-title">
+      <div class="container-site">
+        <div class="mx-auto max-w-2xl text-center" data-reveal="fadeInUp">
+          <p class="eyebrow">Comment ça marche</p>
+          <h2 id="process-title" class="h-section mt-4">Quatre étapes pour passer du cassé au retour en main.</h2>
+        </div>
+
+        <div class="relative mt-16">
+          <div class="timeline-track left-7 top-0 h-full w-0.5 lg:left-[12.5%] lg:right-[12.5%] lg:top-7 lg:h-0.5 lg:w-auto" aria-hidden="true"></div>
+          <div id="timeline-fill" class="timeline-fill left-7 top-0 h-full w-0.5 lg:left-[12.5%] lg:right-[12.5%] lg:top-7 lg:h-0.5 lg:w-auto" aria-hidden="true"></div>
+
+          <ol class="relative grid gap-10 lg:grid-cols-4 lg:gap-6">
+            <li class="flex gap-5 lg:flex-col lg:items-center lg:text-center" data-reveal="fadeInUp">
+              <span class="step-dot">01</span>
+              <div>
+                <h3 class="text-xl font-bold">Dites-nous ce qui ne va pas</h3>
+                <p class="mt-2 text-muted">Envoyez une demande, appelez ou venez à l'atelier avec votre appareil.</p>
+              </div>
+            </li>
+            <li class="flex gap-5 lg:flex-col lg:items-center lg:text-center" data-reveal="fadeInUp" data-delay="120">
+              <span class="step-dot">02</span>
+              <div>
+                <h3 class="text-xl font-bold">Diagnosis &amp; quote</h3>
+                <p class="mt-2 text-muted">Nous testons l'appareil, expliquons la panne et vous donnons un devis clair à approuver.</p>
+              </div>
+            </li>
+            <li class="flex gap-5 lg:flex-col lg:items-center lg:text-center" data-reveal="fadeInUp" data-delay="240">
+              <span class="step-dot">03</span>
+              <div>
+                <h3 class="text-xl font-bold">Repair &amp; testing</h3>
+                <p class="mt-2 text-muted">Une fois votre accord donné, nous réparons et testons toutes les fonctions avant de vous rendre l'appareil.</p>
+              </div>
+            </li>
+            <li class="flex gap-5 lg:flex-col lg:items-center lg:text-center" data-reveal="fadeInUp" data-delay="360">
+              <span class="step-dot !border-crimson-500 !bg-crimson-500 !text-white">04</span>
+              <div>
+                <h3 class="text-xl font-bold">Récupération</h3>
+                <p class="mt-2 text-muted">Nous vous prévenons quand c'est prêt. Récupérez-le en boutique — interrogez-nous sur les options de retour.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== IN-STORE SERVICES ============================== -->
+    <section id="instore" class="on-dark relative overflow-hidden bg-navy-900 py-20 text-white sm:py-24" aria-labelledby="instore-title">
+      <div class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-600/30 blur-3xl" aria-hidden="true"></div>
+      <div class="container-site relative grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-center">
+        <div data-reveal="fadeInUp">
+          <p class="eyebrow">À la boutique</p>
+          <h2 id="instore-title" class="h-section mt-4 !text-white">Toutes les solutions <span class="font-brand text-crimson-400">sur demande.</span></h2>
+          <p class="mt-5 text-lg leading-relaxed text-white/70">Au-delà des réparations, Zafa Tech est votre arrêt technique du quotidien dans le 6e. Passez sans rendez-vous pour ces services.</p>
+        </div>
+        <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <li class="instore-tile" data-reveal="fadeInUp"><svg class="icon" aria-hidden="true"><use href="#i-printer"/></svg><span class="font-semibold">Impression</span></li>
+          <li class="instore-tile" data-reveal="fadeInUp" data-delay="50"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span class="font-semibold">Photocopies</span></li>
+          <li class="instore-tile" data-reveal="fadeInUp" data-delay="100"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg><span class="font-semibold">Numérisation</span></li>
+          <li class="instore-tile" data-reveal="fadeInUp" data-delay="150"><svg class="icon" aria-hidden="true"><use href="#i-at"/></svg><span class="font-semibold">E-mail &amp; online help</span></li>
+          <li class="instore-tile" data-reveal="fadeInUp"><svg class="icon" aria-hidden="true"><use href="#i-sim"/></svg><span class="font-semibold">Cartes SIM</span></li>
+          <li class="instore-tile" data-reveal="fadeInUp" data-delay="50"><svg class="icon" aria-hidden="true"><use href="#i-headphones"/></svg><span class="font-semibold">Accessoires</span></li>
+          <li class="instore-tile" data-reveal="fadeInUp" data-delay="100"><svg class="icon" aria-hidden="true"><use href="#i-transfer"/></svg><span class="font-semibold">Transfert d'argent Ria</span></li>
+          <li class="instore-tile !border-crimson-400/40 !bg-crimson-500/10" data-reveal="fadeInUp" data-delay="150"><svg class="icon !text-crimson-400" aria-hidden="true"><use href="#i-tool"/></svg><span class="font-semibold">Réparations pendant vos achats</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== REFURBISHED ============================== -->
+    <section id="refurbished" class="section" aria-labelledby="refurb-title">
+      <div class="container-site">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div class="max-w-2xl" data-reveal="fadeInUp">
+            <p class="eyebrow">Reconditionné</p>
+            <h2 id="refurb-title" class="h-section mt-4">Appareils de seconde vie, contrôlés à l'atelier.</h2>
+            <p class="lead mt-4">Le stock change souvent. Les annonces ci-dessous sont des exemples de ce que nous proposons — contactez-nous pour connaître la disponibilité, l'état et le prix du jour.</p>
+          </div>
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Filter refurbished devices" id="refurb-filters" data-reveal="fadeInUp" data-delay="80">
+            <button type="button" class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-pill" data-filter="phone" aria-pressed="false">Téléphones</button>
+            <button type="button" class="filter-pill" data-filter="laptop" aria-pressed="false">Ordinateur portables</button>
+            <button type="button" class="filter-pill" data-filter="tablet" aria-pressed="false">Tablettes</button>
+            <button type="button" class="filter-pill" data-filter="other" aria-pressed="false">Autre</button>
+          </div>
+        </div>
+
+        <ul id="refurb-grid" class="mobile-card-rail mt-10 sm:mt-12 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-3" aria-live="polite">
+          <!-- Rendered by js/app.js from REFURB_ITEMS (demo data) -->
+        </ul>
+        <noscript><p class="mt-8 text-muted">Appelez-nous au 07 53 19 40 03 pour notre stock actuel d'appareils reconditionnés.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============================== BOOKING ============================== -->
+    <section id="booking" class="on-dark section relative overflow-hidden text-white" aria-labelledby="booking-title">
+      <div class="gradient-pan absolute inset-0 bg-[linear-gradient(120deg,#06142E,#0F2757,#16348F,#0A1F44)]" aria-hidden="true"></div>
+      <div class="grid-bg-dark pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
+
+      <div class="container-site relative grid gap-12 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
+        <div data-reveal="fadeInUp">
+          <p class="eyebrow">Demande de réparation</p>
+          <h2 id="booking-title" class="h-section mt-4 !text-white">Dites-nous ce qui ne va pas. Nous nous occupons du reste.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-white/70">Remplissez le formulaire et nous vous recontacterons pour confirmer les détails et les prochaines étapes.</p>
+          <ul class="mt-8 space-y-4">
+            <li class="flex gap-3"><span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-signal/15 text-signal"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-check"/></svg></span><span class="text-white/85">Aucune réparation ne commence sans votre accord sur le devis.</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-signal/15 text-signal"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-check"/></svg></span><span class="text-white/85">Nous répondons en utilisant le moyen de contact que vous choisissez.</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-signal/15 text-signal"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-check"/></svg></span><span class="text-white/85">Vous ne savez pas quel est le problème ? Décrivez simplement les symptômes.</span></li>
+          </ul>
+          <div class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+            <p class="text-sm text-white/60">Vous préférez parler ?</p>
+            <a href="tel:+33753194003" class="mt-1 inline-flex items-center gap-2 font-display text-2xl font-bold text-white hover:text-signal"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg>07 53 19 40 03</a>
+          </div>
+        </div>
+
+        <div class="rounded-4xl bg-white p-5 text-ink shadow-2xl sm:p-8" data-reveal="fadeInUp" data-delay="100">
+          <form id="booking-form" novalidate aria-describedby="form-note">
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label class="field-label" for="f-name">Nom complet <span class="text-crimson-500" aria-hidden="true">*</span></label>
+                <input class="field" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" />
+                <p class="field-error" id="e-name"></p>
+              </div>
+              <div>
+                <label class="field-label" for="f-phone">Téléphone <span class="text-crimson-500" aria-hidden="true">*</span></label>
+                <input class="field" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" required aria-describedby="e-phone" />
+                <p class="field-error" id="e-phone"></p>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="field-label" for="f-email">E-mail <span class="text-crimson-500" aria-hidden="true">*</span></label>
+                <input class="field" id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="e-email" />
+                <p class="field-error" id="e-email"></p>
+              </div>
+              <div>
+                <label class="field-label" for="f-device">Type d’appareil <span class="text-crimson-500" aria-hidden="true">*</span></label>
+                <select class="field" id="f-device" name="device" required aria-describedby="e-device">
+                  <option value="">Sélectionnez un appareil…</option>
+                  <option value="smartphone">Smartphone</option>
+                  <option value="laptop">Ordinateur portable / MacBook</option>
+                  <option value="tablet">Tablette</option>
+                  <option value="desktop">Ordinateur de bureau</option>
+                  <option value="console">Console de jeux</option>
+                  <option value="smartwatch">Montre connectée</option>
+                  <option value="data">Récupération de données</option>
+                  <option value="refurbished">Demande d'appareil reconditionné</option>
+                  <option value="other">Autre / pas sûr</option>
+                </select>
+                <p class="field-error" id="e-device"></p>
+              </div>
+              <div>
+                <label class="field-label" for="f-model">Modèle de l’appareil <span class="text-crimson-500" aria-hidden="true">*</span></label>
+                <input class="field" id="f-model" name="model" type="text" placeholder="e.g. brand and model" required aria-describedby="e-model" />
+                <p class="field-error" id="e-model"></p>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="field-label" for="f-problem">Quel est le problème ? <span class="text-crimson-500" aria-hidden="true">*</span></label>
+                <textarea class="field min-h-[130px] resize-y" id="f-problem" name="problem" rows="4" maxlength="1000" placeholder="What happened, and what does the device do (or not do) now?" required aria-describedby="e-problem problem-count"></textarea>
+                <div class="flex items-start justify-between gap-3">
+                  <p class="field-error" id="e-problem"></p>
+                  <p class="ml-auto mt-1.5 font-mono text-xs text-muted" id="problem-count">0 / 1000</p>
+                </div>
+              </div>
+              <fieldset class="sm:col-span-2" aria-describedby="e-contact">
+                <legend class="field-label">Moyen de contact préféré <span class="text-crimson-500" aria-hidden="true">*</span></legend>
+                <div class="grid grid-cols-1 gap-2.5 xs:grid-cols-3">
+                  <label class="radio-pill"><input type="radio" name="contact" value="phone" checked /><span><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-call"/></svg>Téléphone</span></label>
+                  <label class="radio-pill"><input type="radio" name="contact" value="sms" /><span><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-message"/></svg>SMS</span></label>
+                  <label class="radio-pill"><input type="radio" name="contact" value="email" /><span><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-mail"/></svg>E-mail</span></label>
+                </div>
+                <p class="field-error" id="e-contact"></p>
+              </fieldset>
+              <div class="sm:col-span-2">
+                <label class="flex cursor-pointer items-start gap-3 text-sm text-muted">
+                  <input id="f-consent" name="consent" type="checkbox" class="mt-0.5 h-5 w-5 shrink-0 rounded border-line accent-brand-600" required aria-describedby="e-consent" />
+                  <span>J'accepte que Zafa Tech me contacte au sujet de cette demande. Voir notre <button type="button" class="font-semibold text-brand-700 underline underline-offset-2" data-legal="privacy">politique de confidentialité</button>.</span>
+                </label>
+                <p class="field-error" id="e-consent"></p>
+              </div>
+            </div>
+
+            <!-- Honeypot for bots — keep hidden -->
+            <div class="hidden" aria-hidden="true"><label>Laisser vide<input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+
+            <button type="submit" class="btn btn-primary mt-7 w-full text-base" id="booking-submit">
+              <span class="btn-label">Envoyer la demande de réparation</span><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </button>
+            <p id="form-note" class="mt-3 text-center text-xs text-muted">Les champs marqués * sont obligatoires.</p>
+          </form>
+
+          <div id="booking-success" class="hidden py-10 text-center" tabindex="-1">
+            <span class="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/50"><svg class="icon h-8 w-8" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3 class="mt-6 text-2xl font-bold">Merci — demande reçue.</h3>
+            <p class="mx-auto mt-3 max-w-sm text-muted" id="booking-success-text">Nous vous recontacterons sous peu pour confirmer les prochaines étapes.</p>
+            <button type="button" id="booking-reset" class="btn btn-ghost mt-8">Envoyer une autre demande</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FAQ ============================== -->
+    <section id="faq" class="section bg-white" aria-labelledby="faq-title">
+      <div class="container-site grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+        <div data-reveal="fadeInUp">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title" class="h-section mt-4">De bonnes questions, des réponses franches.</h2>
+          <p class="lead mt-5">Vous ne trouvez pas ce que vous cherchez ? Appelez-nous ou passez à la boutique.</p>
+          <div class="mt-8 flex flex-col gap-3 xs:flex-row lg:flex-col xl:flex-row">
+            <a href="tel:+33753194003" class="btn btn-primary"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg>Appeler la boutique</a>
+            <a href="#contact" class="btn btn-ghost">Coordonnées</a>
+          </div>
+        </div>
+
+        <div id="faq-list" class="space-y-3" data-reveal="fadeInUp" data-delay="100">
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">Ai-je besoin d'un rendez-vous ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a1" role="region" aria-labelledby="faq-q1"><div><p class="px-5 pb-6 text-muted sm:px-6">Vous pouvez passer sans rendez-vous pendant les horaires d'ouverture. Envoyer d'abord une demande en ligne nous aide à nous préparer — par exemple à vérifier qu'une pièce pour votre modèle est disponible.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Combien coûtera ma réparation ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a2" role="region" aria-labelledby="faq-q2"><div><p class="px-5 pb-6 text-muted sm:px-6">Cela dépend de l'appareil, de la panne et de la pièce. Après diagnostic, nous vous donnons un devis clair et aucun travail ne commence sans votre accord.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">Combien de temps dure une réparation ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a3" role="region" aria-labelledby="faq-q3"><div><p class="px-5 pb-6 text-muted sm:px-6">Les réparations courantes sont généralement plus rapides ; les interventions sur carte mère et les réparations nécessitant une pièce commandée prennent plus de temps. Nous vous donnerons une estimation avec votre devis.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">Mes données sont-elles en sécurité pendant la réparation ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a4" role="region" aria-labelledby="faq-q4"><div><p class="px-5 pb-6 text-muted sm:px-6">Nous accédons uniquement à ce qui est nécessaire pour tester la réparation. Dans la mesure du possible, sauvegardez votre appareil avant de le confier — nous pouvons vous conseiller.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">Les réparations sont-elles garanties ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a5" role="region" aria-labelledby="faq-q5"><div><p class="px-5 pb-6 text-muted sm:px-6">Warranty terms: <span class="rounded bg-crimson-50 px-1 font-mono text-[0.9em] text-crimson-600">[Warranty period &amp; conditions]</span>. Demandez-nous les détails applicables à votre réparation.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">Un autre atelier a dit que mon appareil ne pouvait pas être réparé. Pouvez-vous aider ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a6" role="region" aria-labelledby="faq-q6"><div><p class="px-5 pb-6 text-muted sm:px-6">Souvent oui — des pannes comme un circuit de charge mort ou un dégât des eaux peuvent parfois être réparées au niveau de la carte mère. Nous ne pouvons promettre que tout appareil est récupérable, mais nous diagnostiquerons et vous dirons honnêtement.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">Quelles marques réparez-vous ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a7" role="region" aria-labelledby="faq-q7"><div><p class="px-5 pb-6 text-muted sm:px-6">Nous travaillons sur la plupart des grandes marques de smartphones, tablettes, ordinateurs portables et consoles. Indiquez-nous votre modèle exact dans le formulaire et nous confirmerons.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">Que puis-je faire d'autre à la boutique ?<span class="faq-plus" aria-hidden="true"></span></button></h3>
+            <div class="faq-panel" id="faq-a8" role="region" aria-labelledby="faq-q8"><div><p class="px-5 pb-6 text-muted sm:px-6">Impression, photocopies, numérisation, aide pour l'e-mail, cartes SIM, accessoires pour téléphone et ordinateur, et transferts d'argent Ria.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container-site">
+        <div class="max-w-2xl" data-reveal="fadeInUp">
+          <p class="eyebrow">Visiter ou contacter</p>
+          <h2 id="contact-title" class="h-section mt-4">Venez nous voir Rue Littré.</h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
+          <ul class="grid gap-4 sm:grid-cols-2">
+            <li class="card flex flex-col p-6" data-reveal="fadeInUp">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-call"/></svg></span>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">Téléphone</h3>
+              <a href="tel:+33753194003" class="mt-1 font-display text-xl font-bold text-navy-900 hover:text-brand-700">07 53 19 40 03</a>
+            </li>
+            <li class="card flex flex-col p-6" data-reveal="fadeInUp" data-delay="60">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-mail"/></svg></span>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">E-mail</h3>
+              <a href="mailto:zafatechparis@gmail.com" class="mt-1 break-all font-display text-lg font-bold text-navy-900 hover:text-brand-700">zafatechparis@gmail.com</a>
+            </li>
+            <li class="card flex flex-col p-6" data-reveal="fadeInUp">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-pin"/></svg></span>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">Adresse</h3>
+              <p class="mt-1 font-display text-lg font-bold text-navy-900">18 Rue Littré<br />75006 Paris</p>
+            </li>
+            <li class="card flex flex-col p-6" data-reveal="fadeInUp" data-delay="60">
+              <span class="service-icon !mb-4"><svg class="icon"><use href="#i-clock"/></svg></span>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">Horaires d'ouverture</h3>
+              <p class="mt-1 font-mono text-sm text-crimson-600">[Business hours]</p>
+            </li>
+          </ul>
+
+          <div class="relative overflow-hidden rounded-4xl bg-navy-900 p-7 text-white sm:p-9" data-reveal="fadeInUp" data-delay="100">
+            <svg class="pointer-events-none absolute -bottom-10 -right-10 h-64 w-64 text-white/[0.06]" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><use href="#i-fleur"/></svg>
+            <h3 class="font-display text-2xl font-bold !text-white sm:text-3xl">Prêt quand vous l'êtes.</h3>
+            <p class="mt-3 max-w-sm text-white/70">Réservez en ligne pour que nous soyons prêts pour votre appareil, ou obtenez l'itinéraire et passez nous voir.</p>
+            <div class="relative mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <a href="#booking" class="btn btn-light">Réserver une réparation<svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=18+Rue+Littr%C3%A9+75006+Paris" target="_blank" rel="noopener" class="btn btn-outline-light"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Obtenir l'itinéraire</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  

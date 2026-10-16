@@ -62,6 +62,7 @@
 <body>
   <!-- Icon sprite (inline so it also works when opened from the file system) -->
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
     <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="11" rx="1.5"/><path d="M2 19.5h20"/></symbol>
     <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
@@ -136,7 +137,7 @@
         <a href="tel:+33753194003" class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-navy-900 transition-colors hover:text-brand-700 xl:inline-flex">
           <svg class="icon h-4 w-4 text-brand-600" aria-hidden="true"><use href="#i-call"/></svg>07 53 19 40 03
         </a>
-        <a href="#booking" class="btn btn-primary hidden sm:inline-flex">Book a Repair<svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <a href="#booking" class="btn btn-primary hidden md:inline-flex">Book a Repair<svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
         <button id="nav-toggle" class="burger lg:hidden" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -145,7 +146,10 @@
   </header>
 
   <!-- Mobile navigation panel -->
+  <button id="mobile-nav-backdrop" class="mobile-nav-backdrop lg:hidden" type="button" tabindex="-1" aria-label="Close menu"></button>
   <div id="mobile-nav" class="mobile-nav lg:hidden" aria-label="Mobile">
+    <div class="mobile-nav-handle" aria-hidden="true"></div>
+    <div class="mb-4 flex items-center justify-between"><p class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">Explore Zafa Tech</p><button type="button" class="mobile-nav-close" aria-label="Close menu"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-x"/></svg></button></div>
     <nav aria-label="Mobile primary">
       <a class="m-link" href="#services">Services<svg class="icon text-brand-600" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
       <a class="m-link" href="#diagnose">Choose your device<svg class="icon text-brand-600" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
@@ -161,13 +165,21 @@
     <p class="mt-8 flex items-start gap-2 text-sm text-muted"><svg class="icon h-5 w-5 text-crimson-500" aria-hidden="true"><use href="#i-pin"/></svg>18 Rue Littré, 75006 Paris</p>
   </div>
 
+  <nav class="mobile-dock lg:hidden" aria-label="Quick actions">
+    <a class="mobile-dock-link" href="#top"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span>Home</span></a>
+    <a class="mobile-dock-link" href="#services"><svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg><span>Services</span></a>
+    <a class="mobile-dock-link" href="#diagnose"><svg class="icon" aria-hidden="true"><use href="#i-diagnose"/></svg><span>Diagnose</span></a>
+    <a class="mobile-dock-link" href="tel:+33753194003"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg><span>Call</span></a>
+    <a class="mobile-dock-link mobile-dock-primary" href="#booking"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span>Book</span></a>
+  </nav>
+
   <main id="main">
     <!-- ============================== HERO ============================== -->
     <section id="top" class="relative overflow-hidden pb-16 pt-[calc(var(--header-h)+2.5rem)] sm:pb-20 lg:pb-28 lg:pt-[calc(var(--header-h)+4rem)]" aria-labelledby="hero-title">
       <div class="grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
       <svg class="pointer-events-none absolute -right-40 top-10 hidden h-[640px] w-[640px] text-brand-600/[0.05] lg:block" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><use href="#i-fleur"/></svg>
 
-      <div class="container-site relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
+      <div class="container-site relative grid items-center gap-14 min-[900px]:grid-cols-[1.05fr_1fr] min-[900px]:gap-8 lg:gap-10">
         <div class="max-w-2xl">
           <p class="eyebrow animate__animated animate__fadeInUp">Repair workshop · Paris 6e</p>
           <h1 id="hero-title" class="animate__animated animate__fadeInUp mt-5 font-display font-extrabold leading-[1.02] text-navy-900" style="font-size:clamp(2.5rem,1.6rem + 4vw,4.75rem);animation-delay:.08s">
@@ -281,7 +293,7 @@
           <p class="lead max-w-md" data-reveal="fadeInUp" data-delay="100">Pick a category to start a request, or bring your device to the shop and we'll take a look together.</p>
         </div>
 
-        <ul class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        <ul class="mobile-card-rail mt-10 sm:mt-14 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-5">
           <li class="sm:col-span-2" data-reveal="fadeInUp">
             <article class="service-card bg-gradient-to-br from-white to-brand-50/70">
               <span class="service-icon"><svg class="icon"><use href="#i-phone"/></svg></span>
@@ -413,7 +425,7 @@
         <g fill="#22D3EE" fill-opacity=".35"><circle cx="560" cy="180" r="4"/><circle cx="880" cy="250" r="4"/><circle cx="460" cy="560" r="4"/><circle cx="980" cy="640" r="4"/></g>
       </svg>
 
-      <div class="container-site relative grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <div class="container-site relative grid items-center gap-14 min-[900px]:grid-cols-2 min-[900px]:gap-12 lg:gap-20">
         <div>
           <p class="eyebrow" data-reveal="fadeInUp">Board-level lab</p>
           <h2 id="lab-title" class="h-section mt-4 !text-white" data-reveal="fadeInUp">When the fix goes deeper than a part swap.</h2>
@@ -628,7 +640,7 @@
           </div>
         </div>
 
-        <ul id="refurb-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
+        <ul id="refurb-grid" class="mobile-card-rail mt-10 sm:mt-12 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-3" aria-live="polite">
           <!-- Rendered by js/app.js from REFURB_ITEMS (demo data) -->
         </ul>
         <noscript><p class="mt-8 text-muted">Please call us on 07 53 19 40 03 for our current refurbished stock.</p></noscript>
@@ -705,7 +717,7 @@
               </div>
               <fieldset class="sm:col-span-2" aria-describedby="e-contact">
                 <legend class="field-label">Preferred contact method <span class="text-crimson-500" aria-hidden="true">*</span></legend>
-                <div class="grid grid-cols-3 gap-2.5">
+                <div class="grid grid-cols-1 gap-2.5 xs:grid-cols-3">
                   <label class="radio-pill"><input type="radio" name="contact" value="phone" checked /><span><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-call"/></svg>Phone</span></label>
                   <label class="radio-pill"><input type="radio" name="contact" value="sms" /><span><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-message"/></svg>SMS</span></label>
                   <label class="radio-pill"><input type="radio" name="contact" value="email" /><span><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-mail"/></svg>Email</span></label>
@@ -919,7 +931,7 @@
   <div id="toast-region" class="pointer-events-none fixed left-4 right-4 top-[calc(var(--header-h)+8px)] z-[60] flex flex-col items-end gap-3 sm:bottom-6 sm:left-auto sm:right-6 sm:top-auto sm:w-[380px]" aria-live="polite" aria-atomic="false"></div>
 
   <!-- Back to top -->
-  <a href="#top" id="back-to-top" class="fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 translate-y-4 items-center justify-center rounded-full bg-navy-900 text-white opacity-0 shadow-lift transition duration-300 hover:bg-brand-600 [&.is-visible]:pointer-events-auto [&.is-visible]:translate-y-0 [&.is-visible]:opacity-100 pointer-events-none" aria-label="Back to top">
+  <a href="#top" id="back-to-top" class="fixed bottom-24 right-4 z-30 inline-flex h-11 w-11 translate-y-4 items-center justify-center rounded-full bg-navy-900 text-white opacity-0 shadow-lift transition duration-300 hover:bg-brand-600 sm:bottom-28 sm:right-6 lg:bottom-5 lg:h-12 lg:w-12 [&.is-visible]:pointer-events-auto [&.is-visible]:translate-y-0 [&.is-visible]:opacity-100 pointer-events-none" aria-label="Back to top">
     <svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-arrow-up"/></svg>
   </a>
 

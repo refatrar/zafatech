@@ -11,6 +11,44 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ZT_LANG = (window.ztStrings && window.ztStrings.lang) === 'fr' ? 'fr' : 'en';
+  const MSG = (ZT_LANG === 'fr') ? {
+    enterName: 'Veuillez saisir votre nom.',
+    enterPhone: 'Veuillez saisir un numéro de téléphone.',
+    validPhone: 'Veuillez saisir un numéro de téléphone valide, ex. 06 12 34 56 78.',
+    enterEmail: 'Veuillez saisir votre adresse e-mail.',
+    validEmail: 'Veuillez saisir une adresse e-mail valide.',
+    chooseDevice: "Veuillez choisir un type d'appareil.",
+    model: 'Veuillez préciser le modèle (ou « inconnu »).',
+    describe: 'Veuillez décrire le problème en quelques mots (10 caractères minimum).',
+    chooseContact: 'Veuillez choisir comment nous vous contacterons.',
+    agreeConsent: 'Veuillez accepter pour que nous puissions vous contacter au sujet de votre demande.',
+    nothingSelected: 'Aucun symptôme sélectionné pour l\'instant.',
+    nothingTitle: 'Rien de sélectionné',
+    nothingBody: 'Cochez au moins un symptôme, ou passez directement au formulaire ci-dessous.',
+    carried: 'Détails ajoutés au formulaire.',
+    carriedTitle: 'Détails transférés',
+    requestSent: 'Votre demande a bien été envoyée.',
+    requestFailed: 'Une erreur est survenue. Veuillez réessayer ou nous appeler au 07 53 19 40 03.'
+  } : {
+    enterName: 'Please enter your name.',
+    enterPhone: 'Please enter a phone number.',
+    validPhone: 'Please enter a valid phone number, e.g. 06 12 34 56 78.',
+    enterEmail: 'Please enter your email address.',
+    validEmail: 'Please enter a valid email address.',
+    chooseDevice: 'Please choose a device type.',
+    model: 'Please tell us the model (or “not sure”).',
+    describe: 'Please describe the problem in a few words (10+ characters).',
+    chooseContact: 'Please choose how we should contact you.',
+    agreeConsent: 'Please agree so we can contact you about your request.',
+    nothingSelected: 'No symptoms selected yet.',
+    nothingTitle: 'Nothing selected yet',
+    nothingBody: 'Tick at least one symptom, or skip straight to the form below.',
+    carried: 'Your device and symptoms have been added to the form.',
+    carriedTitle: 'Details carried over',
+    requestSent: 'We’ll be in touch shortly.',
+    requestFailed: 'Something went wrong. Please try again or call us on 07 53 19 40 03.'
+  };
 
   /* ------------------------------------------------------------------ */
   /* Data                                                                */
@@ -193,6 +231,8 @@
   function initMobileNav() {
     const toggle = $('#nav-toggle');
     const panel = $('#mobile-nav');
+    const backdrop = $('#mobile-nav-backdrop');
+    const closeButton = $('.mobile-nav-close', panel);
     if (!toggle || !panel) return;
 
     const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
@@ -201,6 +241,7 @@
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       panel.classList.toggle('is-open', open);
+      if (backdrop) backdrop.classList.toggle('is-open', open);
       document.body.classList.toggle('nav-open', open);
       $('#site-header').classList.toggle('is-scrolled', open || window.scrollY > 10);
       if (open) {
@@ -212,6 +253,8 @@
     };
 
     toggle.addEventListener('click', () => setOpen(!isOpen()));
+    if (backdrop) backdrop.addEventListener('click', () => setOpen(false));
+    if (closeButton) closeButton.addEventListener('click', () => setOpen(false));
 
     panel.addEventListener('click', (e) => {
       if (e.target.closest('a')) setOpen(false, { returnFocus: false });
@@ -245,8 +288,8 @@
   /* ------------------------------------------------------------------ */
   function initScrollSpy() {
     if (!('IntersectionObserver' in window)) return;
-    const links = $$('.nav-link, .m-link');
-    const ids = [...new Set(links.map((a) => a.getAttribute('href').slice(1)))];
+    const links = $$('.nav-link, .m-link, .mobile-dock-link[href^="#"]');
+    const ids = [...new Set(links.map((a) => a.getAttribute('href').slice(1)).filter(Boolean))];
     const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
 
     const setActive = (id) => {
@@ -288,8 +331,6 @@
   function initReveal() {
     const items = $$('[data-reveal]');
     if (reducedMotion || !('IntersectionObserver' in window)) return;
-
-    items.forEach((el) => el.classList.add('reveal-pending'));
 
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
@@ -443,7 +484,7 @@
 
     btnContinue.addEventListener('click', () => {
       if (selection.faults.size === 0) {
-        toast('Tick at least one symptom, or skip straight to the form below.', { type: 'info', title: 'Nothing selected yet' });
+        toast(MSG.nothingBody, { type: 'info', title: MSG.nothingTitle });
         return;
       }
       prefillBooking(selection.device, [...selection.faults]);
@@ -468,7 +509,7 @@
     const section = $('#booking');
     section.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
     setTimeout(() => form.elements.name.focus({ preventScroll: true }), reducedMotion ? 0 : 700);
-    if (faults.length) toast('Your device and symptoms have been added to the form.', { type: 'success', title: 'Details carried over' });
+    if (faults.length) toast(MSG.carried, { type: 'success', title: MSG.carriedTitle });
   }
 
   function initServicePrefill() {
@@ -578,21 +619,21 @@
   /* Booking form                                                        */
   /* ------------------------------------------------------------------ */
   const RULES = {
-    name: (v) => (v.trim().length >= 2 ? '' : 'Please enter your name.'),
+    name: (v) => (v.trim().length >= 2 ? '' : MSG.enterName),
     phone: (v) => {
       const digits = v.replace(/[\s.\-()]/g, '');
-      if (!digits) return 'Please enter a phone number.';
-      return /^\+?\d{9,15}$/.test(digits) ? '' : 'Please enter a valid phone number, e.g. 06 12 34 56 78.';
+      if (!digits) return MSG.enterPhone;
+      return /^\+?\d{9,15}$/.test(digits) ? '' : MSG.validPhone;
     },
     email: (v) => {
-      if (!v.trim()) return 'Please enter your email address.';
-      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Please enter a valid email address.';
+      if (!v.trim()) return MSG.enterEmail;
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : MSG.validEmail;
     },
-    device: (v) => (v ? '' : 'Please choose a device type.'),
-    model: (v) => (v.trim().length >= 2 ? '' : 'Please tell us the model (or “not sure”).'),
-    problem: (v) => (v.trim().length >= 10 ? '' : 'Please describe the problem in a few words (10+ characters).'),
-    contact: (v) => (v ? '' : 'Please choose how we should contact you.'),
-    consent: (_, el) => (el.checked ? '' : 'Please agree so we can contact you about your request.'),
+    device: (v) => (v ? '' : MSG.chooseDevice),
+    model: (v) => (v.trim().length >= 2 ? '' : MSG.model),
+    problem: (v) => (v.trim().length >= 10 ? '' : MSG.describe),
+    contact: (v) => (v ? '' : MSG.chooseContact),
+    consent: (_, el) => (el.checked ? '' : MSG.agreeConsent),
   };
 
   function fieldErrorEl(name) { return document.getElementById(`e-${name}`); }
@@ -695,20 +736,24 @@
       };
 
       submitBtn.disabled = true;
-      label.textContent = 'Sending…';
+      label.textContent = ZT_LANG === 'fr' ? 'Envoi…' : 'Sending…';
       try {
         await submitRepairRequest(payload);
-        const methods = { phone: 'by phone', sms: 'by SMS', email: 'by email' };
-        $('#booking-success-text').textContent = `Thanks, ${payload.name.split(' ')[0]}. We'll contact you ${methods[payload.contactMethod]} to confirm the next steps.`;
+        const methods = ZT_LANG === 'fr'
+          ? { phone: 'par téléphone', sms: 'par SMS', email: 'par e-mail' }
+          : { phone: 'by phone', sms: 'by SMS', email: 'by email' };
+        $('#booking-success-text').textContent = ZT_LANG === 'fr'
+          ? `Merci, ${payload.name.split(' ')[0]}. Nous vous contacterons ${methods[payload.contactMethod]} pour confirmer les prochaines étapes.`
+          : `Thanks, ${payload.name.split(' ')[0]}. We'll contact you ${methods[payload.contactMethod]} to confirm the next steps.`;
         form.classList.add('hidden');
         success.classList.remove('hidden');
         success.focus();
-        toast('We’ll be in touch shortly.', { type: 'success', title: 'Request sent' });
+        toast(MSG.requestSent, { type: 'success', title: (ZT_LANG==='fr'?'Demande envoyée':'Request sent') });
       } catch (err) {
-        toast('Something went wrong. Please try again or call us on 07 53 19 40 03.', { type: 'error', title: 'Couldn’t send request' });
+        toast(MSG.requestFailed, { type: 'error', title: (ZT_LANG==='fr'?'Impossible d’envoyer la demande':'Couldn’t send request') });
       } finally {
         submitBtn.disabled = false;
-        label.textContent = 'Send repair request';
+        label.textContent = ZT_LANG === 'fr' ? 'Envoyer la demande de réparation' : 'Send repair request';
       }
     });
 
