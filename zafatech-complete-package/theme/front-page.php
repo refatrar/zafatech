@@ -1,8 +1,12 @@
 <?php
 get_header();
-if (have_posts()) {
-    while (have_posts()) {
-        the_post();
+$zt_lang = zt_current_lang();
+$zt_home = get_page_by_path($zt_lang === 'fr' ? 'fr/accueil' : 'home');
+if ($zt_home) {
+    $zt_original_post = isset($GLOBALS['post']) ? $GLOBALS['post'] : null;
+    $GLOBALS['post'] = $zt_home;
+    setup_postdata($zt_home);
+    if ($zt_home->post_content) {
         // All homepage content is managed in Pages and is editable in WP admin.
         // The demo homepage is a complete component document. WordPress's
         // wpautop would inject <p>/<br> tags into its grids and SVG wrappers,
@@ -18,9 +22,10 @@ if (have_posts()) {
         }
         echo '</div>';
     }
+    wp_reset_postdata();
+    if ($zt_original_post) $GLOBALS['post'] = $zt_original_post;
 } else {
     // Fallback static design if no page content is present.
-    $lang = zt_current_lang() === 'fr' ? 'fr' : 'en';
-    get_template_part('template-parts/front', $lang);
+    get_template_part('template-parts/front', $zt_lang);
 }
 get_footer();

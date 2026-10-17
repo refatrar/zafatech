@@ -15,8 +15,9 @@ if (!function_exists('zt_current_lang')) {
         if (isset($_GET['lang']) && in_array($_GET['lang'], array('en', 'fr'), true)) {
             return sanitize_key($_GET['lang']);
         }
-        $locale = get_locale();
-        return (strpos($locale, 'fr') === 0) ? 'fr' : 'en';
+        // Zafa Tech serves its Paris audience in French by default. English is
+        // opt-in through the visible language switcher.
+        return 'fr';
     }
 }
 
@@ -83,10 +84,10 @@ if (!function_exists('zt_lang_switcher_links')) {
         }
         if (empty($links)) {
             $current = zt_current_lang();
-            foreach (array('en', 'fr') as $l) {
+            foreach (array('fr', 'en') as $l) {
                 $links[] = array(
                     'slug' => $l,
-                    'name' => $l === 'en' ? 'English' : 'Français',
+                    'name' => $l === 'en' ? 'EN' : 'FR',
                     'url' => add_query_arg('lang', $l),
                     'current' => ($current === $l),
                 );

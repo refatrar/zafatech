@@ -24,7 +24,7 @@
 
     <nav aria-label="Primary" class="hidden lg:block">
       <?php
-      if (has_nav_menu('primary')) {
+      if (has_nav_menu('primary') && zt_current_lang() === 'en') {
           wp_nav_menu(array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'flex items-center gap-1', 'fallback_cb' => false));
       } else {
           ?>
@@ -44,12 +44,12 @@
     <?php endif; ?>
 
     <div class="flex items-center gap-2">
-      <a href="tel:+33753194003" class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-navy-900 transition-colors hover:text-brand-700 xl:inline-flex">
+      <a href="tel:+33753194003" class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-navy-900 transition-colors hover:text-brand-700 min-[1536px]:inline-flex">
         <svg class="icon h-4 w-4 text-brand-600" aria-hidden="true"><use href="#i-call"/></svg><?php echo esc_html('07 53 19 40 03'); ?>
       </a>
-      <a href="#booking" class="btn btn-primary hidden md:inline-flex"><?php echo esc_html(zt_t('nav_book')); ?><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a href="#booking" class="btn btn-primary hidden whitespace-nowrap px-4 text-sm md:inline-flex xl:px-5"><?php echo esc_html(zt_t('nav_book')); ?><svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
       <!-- Language switcher -->
-      <nav aria-label="Language" class="hidden items-center gap-1 md:flex">
+      <nav aria-label="Langue" class="language-switch">
         <?php foreach (zt_lang_switcher_links() as $l) : ?>
           <a class="lang-link<?php echo $l['current'] ? ' is-active' : ''; ?>" href="<?php echo esc_url($l['url']); ?>" hreflang="<?php echo esc_attr($l['slug']); ?>"><?php echo esc_html($l['name']); ?></a>
         <?php endforeach; ?>

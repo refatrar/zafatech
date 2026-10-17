@@ -313,7 +313,7 @@ function zt_import_demo_content($refresh_existing = false) {
     // Front page setting
     if ($home_en) {
         update_option('show_on_front', 'page');
-        update_option('page_on_front', $home_en);
+        update_option('page_on_front', $home_fr ?: $home_en);
     }
 
     if ($refresh_existing) zt_refresh_demo_homepages($home_en, $home_fr);

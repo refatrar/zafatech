@@ -48,7 +48,7 @@
           <p class="flex gap-2.5"><svg class="icon h-5 w-5 text-brand-400" aria-hidden="true"><use href="#i-pin"/></svg>18 Rue Littré, 75006 Paris</p>
           <p><a class="flex gap-2.5 hover:text-white" href="tel:+33753194003"><svg class="icon h-5 w-5 text-brand-400" aria-hidden="true"><use href="#i-call"/></svg>07 53 19 40 03</a></p>
           <p><a class="flex gap-2.5 break-all hover:text-white" href="mailto:zafatechparis@gmail.com"><svg class="icon h-5 w-5 text-brand-400" aria-hidden="true"><use href="#i-mail"/></svg>zafatechparis@gmail.com</a></p>
-          <p class="flex gap-2.5"><svg class="icon h-5 w-5 text-brand-400" aria-hidden="true"><use href="#i-clock"/></svg><span class="font-mono text-xs"><?php echo esc_html(__('[Business hours]', 'zafatech')); ?></span></p>
+          <p class="flex gap-2.5"><svg class="icon h-5 w-5 text-brand-400" aria-hidden="true"><use href="#i-clock"/></svg><span class="font-mono text-xs"><?php echo esc_html(zt_ui('[Business hours]', '[Horaires d\'ouverture]')); ?></span></p>
         </address>
       </div>
 
@@ -79,7 +79,7 @@
             </ul>
           </details>
         </div>
-        <p class="mt-5 flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-xs"><svg class="icon h-4 w-4 text-brand-400" aria-hidden="true"><use href="#i-clock"/></svg><span><?php echo esc_html(__('[Business hours]', 'zafatech')); ?></span></p>
+        <p class="mt-5 flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-xs"><svg class="icon h-4 w-4 text-brand-400" aria-hidden="true"><use href="#i-clock"/></svg><span><?php echo esc_html(zt_ui('[Business hours]', '[Horaires d\'ouverture]')); ?></span></p>
       </div>
     </div>
 

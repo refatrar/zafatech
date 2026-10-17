@@ -140,6 +140,11 @@
   .nav-link:hover::after, .nav-link[aria-current='true']::after { @apply w-4; }
   .nav-link[aria-current='true'] { @apply text-brand-700; }
 
+  .language-switch { @apply flex items-center rounded-full border border-line bg-white p-1 shadow-sm; }
+  .lang-link { @apply inline-flex min-h-9 min-w-9 items-center justify-center rounded-full px-2 text-xs font-bold text-muted transition-colors; }
+  .lang-link:hover { @apply text-brand-700; }
+  .lang-link.is-active { @apply bg-navy-900 text-white; }
+
   /* Hamburger → close morph */
   .burger { @apply relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-navy-900; }
   .burger span {

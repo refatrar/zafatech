@@ -50,6 +50,40 @@
     requestFailed: 'Something went wrong. Please try again or call us on 07 53 19 40 03.'
   };
 
+  const FR_COPY = {
+    'Laptop': 'Ordinateur portable', 'Tablet': 'Tablette', 'Desktop PC': 'Ordinateur fixe', 'Smartwatch': 'Montre connectée', 'Other': 'Autre', 'Board': 'Carte mère',
+    'From cracked glass to phones that won’t switch on.': 'De l’écran cassé au téléphone qui ne s’allume plus.',
+    'Windows laptops and MacBooks — hardware and software.': 'Ordinateurs Windows et MacBook — matériel et logiciel.',
+    'Glass, batteries and connectors on popular tablets.': 'Écrans, batteries et connecteurs des tablettes courantes.',
+    'Towers, all-in-ones and custom builds.': 'Tours, tout-en-un et ordinateurs sur mesure.',
+    'Home and handheld consoles, plus controllers.': 'Consoles de salon, portables et manettes.',
+    'Screens and batteries on popular smartwatches.': 'Écrans et batteries des montres connectées courantes.',
+    'Not on the list? Tell us what’s going on.': 'Votre appareil n’est pas listé ? Décrivez-nous le problème.',
+    'Cracked or unresponsive screen': 'Écran cassé ou tactile inactif', 'Battery drains fast or swells': 'Batterie qui se décharge vite ou gonfle',
+    'Won’t charge / loose port': 'Ne charge plus / port desserré', 'Camera or lens damage': 'Appareil photo ou objectif endommagé',
+    'Broken back glass': 'Vitre arrière cassée', 'Water or liquid damage': 'Dégât liquide', 'No sound or microphone issue': 'Problème de son ou de microphone',
+    'Buttons not working': 'Boutons défectueux', 'Won’t power on': 'Ne s’allume plus', 'Software or data problem': 'Problème logiciel ou de données',
+    'Broken or flickering screen': 'Écran cassé ou scintillant', 'Keyboard or trackpad fault': 'Clavier ou pavé tactile défectueux',
+    'Battery not holding charge': 'Batterie qui ne tient plus la charge', 'Won’t charge / DC jack': 'Ne charge plus / connecteur d’alimentation',
+    'Slow — SSD or RAM upgrade': 'Lent — mise à niveau SSD ou RAM', 'Overheating or noisy fan': 'Surchauffe ou ventilateur bruyant',
+    'Broken hinge or casing': 'Charnière ou châssis cassé', 'Liquid spill': 'Liquide renversé', 'Won’t power on (motherboard)': 'Ne s’allume plus (carte mère)',
+    'Virus or OS reinstall': 'Virus ou réinstallation du système', 'Cracked screen or digitizer': 'Écran ou tactile cassé',
+    'Battery replacement': 'Remplacement de batterie', 'Charging connector': 'Connecteur de charge', 'Liquid damage': 'Dégât liquide',
+    'Software problem': 'Problème logiciel', 'Won’t boot or start': 'Ne démarre plus', 'Slow — upgrade needed': 'Lent — mise à niveau nécessaire',
+    'Power supply fault': 'Panne d’alimentation', 'Component install or swap': 'Installation ou remplacement de composant',
+    'Recover files from a drive': 'Récupérer les fichiers d’un disque', 'Disc not reading': 'Disque non reconnu',
+    'Overheating or shutting down': 'Surchauffe ou arrêts', 'HDMI port damaged': 'Port HDMI endommagé',
+    'Controller drift or buttons': 'Drift ou boutons de manette', 'USB or charging port': 'Port USB ou de charge',
+    'Cracked screen or glass': 'Écran ou vitre cassé', 'Won’t charge': 'Ne charge plus', 'Buttons or crown': 'Boutons ou couronne',
+    'Water damage': 'Dégât des eaux', 'Data recovery': 'Récupération de données', 'Diagnosis only': 'Diagnostic uniquement',
+    'Setup or software help': 'Configuration ou aide logicielle', 'Something else': 'Autre problème',
+    'Refurbished smartphone': 'Smartphone reconditionné', 'Refurbished laptop': 'Ordinateur portable reconditionné',
+    'Refurbished tablet': 'Tablette reconditionnée', 'Other devices': 'Autres appareils',
+    'Smartwatches, consoles & more — ask us': 'Montres, consoles et plus — contactez-nous',
+    '[Model] · [Storage] · [Colour]': '[Modèle] · [Stockage] · [Couleur]', '[Grade]': '[État]'
+  };
+  const tr = (value) => ZT_LANG === 'fr' ? (FR_COPY[value] || value) : value;
+
   /* ------------------------------------------------------------------ */
   /* Data                                                                */
   /* ------------------------------------------------------------------ */
@@ -366,7 +400,7 @@
   function initHeroTicker() {
     const el = $('#hero-ticker');
     if (!el || reducedMotion) return;
-    const lines = ['Testing charge circuit…', 'Checking battery wear…', 'Inspecting port pins…', 'Measuring board power…', 'Preparing your quote…'];
+    const lines = ZT_LANG === 'fr' ? ['Test du circuit de charge…', 'Contrôle de la batterie…', 'Inspection du connecteur…', 'Mesure de la carte mère…', 'Préparation du devis…'] : ['Testing charge circuit…', 'Checking battery wear…', 'Inspecting port pins…', 'Measuring board power…', 'Preparing your quote…'];
     let i = 0;
     setInterval(() => {
       if (document.hidden) return;
@@ -400,7 +434,7 @@
     tabsEl.innerHTML = keys.map((key, i) => `
       <button type="button" role="tab" class="device-tab lg:w-full" id="tab-${key}" data-device="${key}"
         aria-selected="${i === 0}" aria-controls="device-panel" tabindex="${i === 0 ? 0 : -1}">
-        ${icon(REPAIRS[key].icon)}<span>${REPAIRS[key].label}</span>
+        ${icon(REPAIRS[key].icon)}<span>${tr(REPAIRS[key].label)}</span>
       </button>`).join('');
 
     const tabs = $$('[role="tab"]', tabsEl);
@@ -414,22 +448,22 @@
     const updateSummary = () => {
       const n = selection.faults.size;
       summary.textContent = n === 0
-        ? 'No symptoms selected yet.'
-        : `${REPAIRS[selection.device].label} · ${n} symptom${n > 1 ? 's' : ''} selected`;
+        ? MSG.nothingSelected
+        : (ZT_LANG === 'fr' ? `${tr(REPAIRS[selection.device].label)} · ${n} symptôme${n > 1 ? 's' : ''} sélectionné${n > 1 ? 's' : ''}` : `${REPAIRS[selection.device].label} · ${n} symptom${n > 1 ? 's' : ''} selected`);
       btnContinue.setAttribute('aria-disabled', String(n === 0));
     };
 
     const renderFaults = () => {
       const data = REPAIRS[selection.device];
-      title.textContent = data.label;
-      intro.textContent = data.intro;
+      title.textContent = tr(data.label);
+      intro.textContent = tr(data.intro);
       panel.setAttribute('aria-labelledby', `tab-${selection.device}`);
       list.innerHTML = data.faults.map((f, i) => `
         <button type="button" class="fault-chip ${reducedMotion ? '' : 'animate__animated animate__fadeInUp'}"
           style="animation-delay:${i * 35}ms;--animate-duration:.45s" aria-pressed="${selection.faults.has(f.label)}" data-fault="${escapeHTML(f.label)}">
           <span class="chk">${icon('i-check', 'h-4 w-4')}</span>
-          <span>${escapeHTML(f.label)}</span>
-          ${f.tag ? `<span class="fault-tag">${f.tag}</span>` : ''}
+          <span>${escapeHTML(tr(f.label))}</span>
+          ${f.tag ? `<span class="fault-tag">${escapeHTML(tr(f.tag))}</span>` : ''}
         </button>`).join('');
       updateSummary();
     };
@@ -538,15 +572,15 @@
             <div class="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-brand-50 via-white to-paper">
               <div class="grid-bg absolute inset-0 opacity-70" aria-hidden="true"></div>
               <span class="relative inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-white text-brand-600 shadow-soft transition duration-500 group-hover:scale-110 group-hover:-rotate-3">${icon(it.icon, 'h-10 w-10')}</span>
-              <span class="absolute left-4 top-4 rounded-full bg-navy-900 px-2.5 py-1 font-mono text-[0.68rem] font-medium uppercase tracking-wider text-white">Demo listing</span>
-              <span class="absolute right-4 top-4 rounded-full bg-white px-2.5 py-1 font-mono text-[0.7rem] text-muted shadow-sm">${escapeHTML(it.grade)}</span>
+              <span class="absolute left-4 top-4 rounded-full bg-navy-900 px-2.5 py-1 font-mono text-[0.68rem] font-medium uppercase tracking-wider text-white">${ZT_LANG === 'fr' ? 'Exemple' : 'Demo listing'}</span>
+              <span class="absolute right-4 top-4 rounded-full bg-white px-2.5 py-1 font-mono text-[0.7rem] text-muted shadow-sm">${escapeHTML(tr(it.grade))}</span>
             </div>
             <div class="flex flex-1 flex-col p-6">
-              <h3 class="text-lg font-bold">${escapeHTML(it.title)}</h3>
-              <p class="mt-1 font-mono text-xs text-muted">${escapeHTML(it.spec)}</p>
+              <h3 class="text-lg font-bold">${escapeHTML(tr(it.title))}</h3>
+              <p class="mt-1 font-mono text-xs text-muted">${escapeHTML(tr(it.spec))}</p>
               <div class="mt-auto flex items-center justify-between gap-3 pt-6">
-                <span class="text-sm font-semibold text-navy-900">Price on request</span>
-                <a href="#booking" class="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-brand-700 hover:underline" data-refurb="${escapeHTML(it.title)}">Ask availability${icon('i-arrow-right', 'h-4 w-4')}</a>
+                <span class="text-sm font-semibold text-navy-900">${ZT_LANG === 'fr' ? 'Prix sur demande' : 'Price on request'}</span>
+                <a href="#booking" class="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-brand-700 hover:underline" data-refurb="${escapeHTML(tr(it.title))}">${ZT_LANG === 'fr' ? 'Demander la disponibilité' : 'Ask availability'}${icon('i-arrow-right', 'h-4 w-4')}</a>
               </div>
             </div>
           </article>
@@ -719,7 +753,7 @@
         const el = first instanceof RadioNodeList ? first[0] : first;
         el.focus();
         el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake');
-        toast(`Please check ${errors.length === 1 ? 'the highlighted field' : `the ${errors.length} highlighted fields`}.`, { type: 'error', title: 'Almost there' });
+        toast(ZT_LANG === 'fr' ? `Veuillez vérifier ${errors.length === 1 ? 'le champ indiqué' : `les ${errors.length} champs indiqués`}.` : `Please check ${errors.length === 1 ? 'the highlighted field' : `the ${errors.length} highlighted fields`}.`, { type: 'error', title: ZT_LANG === 'fr' ? 'Presque terminé' : 'Almost there' });
         return;
       }
 
@@ -777,7 +811,11 @@
   function initLegal() {
     const dialog = $('#legal-dialog');
     if (!dialog || typeof dialog.showModal !== 'function') return;
-    const copy = {
+    const copy = ZT_LANG === 'fr' ? {
+      privacy: ['Politique de confidentialité', 'Comment Zafa Tech collecte, utilise et conserve les données personnelles que vous nous transmettez.'],
+      terms: ['Conditions d’utilisation', 'Les conditions applicables à l’utilisation de ce site et des services Zafa Tech.'],
+      service: ['Politique de service', 'Devis, diagnostic, conditions de réparation, garantie, délais de retrait et responsabilité.'],
+    } : {
       privacy: ['Privacy Policy', 'How Zafa Tech collects, uses and stores the personal data you share with us (for example through the repair request form).'],
       terms: ['Terms of Service', 'The terms that apply when using this website and Zafa Tech services.'],
       service: ['Service Policy', 'Quotes, diagnosis, repair conditions, warranty, collection deadlines and liability.'],
@@ -796,7 +834,7 @@
       const ph = e.target.closest('[data-placeholder-link]');
       if (ph) {
         e.preventDefault();
-        toast(`Our ${ph.dataset.placeholderLink} page is coming soon.`, { type: 'info' });
+        toast(ZT_LANG === 'fr' ? `Notre page ${ph.dataset.placeholderLink} sera bientôt disponible.` : `Our ${ph.dataset.placeholderLink} page is coming soon.`, { type: 'info' });
       }
     });
   }
