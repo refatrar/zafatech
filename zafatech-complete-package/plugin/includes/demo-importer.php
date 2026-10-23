@@ -88,15 +88,48 @@ function zt_create_page($slug, $title, $content, $parent = 0, $template = '') {
     return is_wp_error($id) ? 0 : (int) $id;
 }
 
+/** Fill the media placeholders in the demo homepage markup. */
+function zt_fill_demo_media($content) {
+    $media_map = get_option('zt_demo_media', array());
+    foreach (array(
+        '__STOREFRONT_URL__' => array('zafatech-storefront.webp', 'zafatech-storefront.webp'),
+        '__WORKSHOP_URL__'   => array('zafatech-workshop-bg.jpg', 'zafatech-workshop.webp'),
+    ) as $placeholder => $files) {
+        $id = isset($media_map[$files[0]]) ? (int) $media_map[$files[0]] : 0;
+        $url = $id ? wp_get_attachment_url($id) : '';
+        // Fall back to the copy bundled with the theme so the image never breaks.
+        if (!$url) $url = get_template_directory_uri() . '/assets/images/' . $files[1];
+        $content = str_replace($placeholder, esc_url($url), $content);
+    }
+    return zt_fill_demo_contact($content);
+}
+
+/** Fill contact placeholders from Customizer → Zafa Tech: Contact & Social (theme helpers when active). */
+function zt_fill_demo_contact($content) {
+    $theme = function_exists('zt_mod') && function_exists('zt_tel_href') && function_exists('zt_map_url');
+    $phone   = $theme ? zt_mod('zt_phone') : '07 53 19 40 03';
+    $email   = $theme ? zt_mod('zt_email') : 'zafatechparis@gmail.com';
+    $address = $theme ? zt_mod('zt_address') : '18 Rue Littré, 75006 Paris';
+    $tel     = $theme ? zt_tel_href() : 'tel:+33753194003';
+    $map     = $theme ? zt_map_url() : 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode($address);
+    return strtr($content, array(
+        '__ZT_TEL__'           => esc_attr($tel),
+        '__ZT_MAILTO__'        => esc_attr('mailto:' . antispambot($email)),
+        '__ZT_EMAIL__'         => esc_html(antispambot($email)),
+        '__ZT_MAP_URL__'       => esc_url($map),
+        '__ZT_ADDRESS_LINES__' => implode('<br />', array_map('esc_html', array_map('trim', explode(',', $address, 2)))),
+        '__ZT_ADDRESS__'       => esc_html($address),
+        '__ZT_PHONE__'         => esc_html($phone),
+    ));
+}
+
 /** Refresh only the imported homepage markup without duplicating demo posts. */
 function zt_refresh_demo_homepages($home_en = 0, $home_fr = 0) {
     $home_en_page = zt_find_page('home');
     $home_en = $home_en ?: ($home_en_page ? (int) $home_en_page->ID : 0);
     $home_fr_page = zt_find_page('fr/accueil');
     $home_fr = $home_fr ?: ($home_fr_page ? (int) $home_fr_page->ID : 0);
-    $media_map = get_option('zt_demo_media', array());
-    $storefront_id = isset($media_map['zafatech-storefront.webp']) ? (int) $media_map['zafatech-storefront.webp'] : 0;
-    $storefront_url = $storefront_id ? wp_get_attachment_url($storefront_id) : '';
+    zt_import_demo_workshop_media();
 
     foreach (array(
         array($home_en, ZT_CORE_DIR . 'demo-content/home-en.html'),
@@ -104,10 +137,18 @@ function zt_refresh_demo_homepages($home_en = 0, $home_fr = 0) {
     ) as $homepage) {
         list($page_id, $file) = $homepage;
         if (!$page_id || !file_exists($file)) continue;
-        $content = file_get_contents($file);
-        if ($storefront_url) $content = str_replace('__STOREFRONT_URL__', esc_url($storefront_url), $content);
+        $content = zt_fill_demo_media(file_get_contents($file));
         wp_update_post(array('ID' => $page_id, 'post_content' => $content));
     }
+}
+
+/** Workshop photo used behind the board-level lab section. Safe to call repeatedly. */
+function zt_import_demo_workshop_media() {
+    return zt_import_local_media(
+        ZT_CORE_DIR . 'demo-content/media/zafatech-workshop-bg.jpg',
+        'Zafa Tech repair workbench',
+        'A repair workbench with an opened smartphone, precision screwdrivers, tweezers and a laptop under a desk lamp.'
+    );
 }
 
 function zt_link_pages($en_id, $fr_id) {
@@ -142,13 +183,9 @@ function zt_import_demo_content($refresh_existing = false) {
     $fr_file = ZT_CORE_DIR . 'demo-content/home-fr.html';
     if (file_exists($en_file)) $home_content_en = file_get_contents($en_file);
     if (file_exists($fr_file)) $home_content_fr = file_get_contents($fr_file);
-    if ($storefront_id) {
-        $url = wp_get_attachment_url($storefront_id);
-        if ($url) {
-            $home_content_en = str_replace('__STOREFRONT_URL__', esc_url($url), $home_content_en);
-            $home_content_fr = str_replace('__STOREFRONT_URL__', esc_url($url), $home_content_fr);
-        }
-    }
+    zt_import_demo_workshop_media();
+    $home_content_en = zt_fill_demo_media($home_content_en);
+    $home_content_fr = zt_fill_demo_media($home_content_fr);
     $home_en = zt_create_page('home', 'Home', $home_content_en ? $home_content_en : 'Home', 0, '');
     $home_fr = zt_create_page('accueil', 'Accueil', $home_content_fr ? $home_content_fr : 'Accueil', $fr_parent, '');
     zt_link_pages($home_en, $home_fr);

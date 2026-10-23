@@ -123,6 +123,12 @@
 
   /* Header */
   .site-header { @apply fixed inset-x-0 top-0 z-50 transition-all duration-300; height: var(--header-h); }
+
+  /* Brand logo (Customizer → Site Identity) */
+  .site-brand { @apply flex shrink-0 items-center transition-transform duration-500 hover:-translate-y-0.5; }
+  .site-logo { @apply block h-9 w-auto max-w-[150px] object-contain object-left xs:h-10 xs:max-w-[180px] sm:h-11 sm:max-w-[220px] lg:h-12 lg:max-w-[240px]; }
+  .footer-brand { @apply inline-flex; }
+  .footer-logo { @apply block h-14 w-auto max-w-[280px] object-contain object-left lg:h-16; }
   .site-header.is-scrolled {
     background: rgba(245, 247, 252, 0.78);
     backdrop-filter: saturate(1.6) blur(14px);
@@ -137,8 +143,8 @@
     content: '';
     @apply absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-crimson-500 transition-all duration-300;
   }
-  .nav-link:hover::after, .nav-link[aria-current='true']::after { @apply w-4; }
-  .nav-link[aria-current='true'] { @apply text-brand-700; }
+  .nav-link:hover::after, .nav-link[aria-current]::after { @apply w-4; }
+  .nav-link[aria-current] { @apply text-brand-700; }
 
   .language-switch { @apply flex items-center rounded-full border border-line bg-white p-1 shadow-sm; }
   .lang-link { @apply inline-flex min-h-9 min-w-9 items-center justify-center rounded-full px-2 text-xs font-bold text-muted transition-colors; }
@@ -189,7 +195,7 @@
   .mobile-nav.is-open .m-link:nth-child(4) { transition-delay: .22s; }
   .mobile-nav.is-open .m-link:nth-child(5) { transition-delay: .26s; }
   .mobile-nav.is-open .m-link:nth-child(6) { transition-delay: .30s; }
-  .mobile-nav .m-link[aria-current='true'] { @apply text-brand-600; }
+  .mobile-nav .m-link[aria-current] { @apply text-brand-600; }
 
   .mobile-dock {
     @apply fixed bottom-0 left-0 right-0 z-40 mx-auto grid max-w-[680px] grid-cols-5 border-t border-line bg-white/95 px-2 pt-2 shadow-[0_-10px_32px_-20px_rgba(10,31,68,.45)] backdrop-blur-xl sm:bottom-4 sm:rounded-2xl sm:border sm:px-3 sm:shadow-lift;
@@ -379,6 +385,46 @@
   .toast-info { @apply border-brand-100; }
 
   /* In-store tiles */
+  /* Inner templates start with a .section; clear the fixed header like the homepage hero does. */
+  main > .section:first-child { padding-top: calc(var(--header-h) + 2.5rem); }
+  @media (min-width: 1024px) { main > .section:first-child { padding-top: calc(var(--header-h) + 4rem); } }
+
+  /* Page/post body (page.php, single.php). Tailwind typography is not installed. */
+  .prose { @apply text-[1.05rem] leading-relaxed text-ink; max-width: 72ch; }
+  .prose.max-w-none { max-width: none; }
+  .prose > * + * { @apply mt-5; }
+  .prose h2 { @apply mt-12 text-2xl font-bold sm:text-3xl; }
+  .prose h3 { @apply mt-9 text-xl font-bold; }
+  .prose h4 { @apply mt-7 text-lg font-bold; }
+  .prose a { @apply font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:decoration-brand-700; }
+  .prose strong { @apply font-semibold text-navy-900; }
+  .prose ul { @apply list-disc space-y-2 pl-6; }
+  .prose ol { @apply list-decimal space-y-2 pl-6; }
+  .prose li::marker { @apply text-brand-600; }
+  .prose blockquote { @apply border-l-4 border-brand-600 bg-white py-3 pl-5 pr-4 italic text-muted; }
+  .prose img, .prose figure { @apply rounded-2xl; }
+  .prose figcaption { @apply mt-2 text-sm text-muted; }
+  .prose hr { @apply my-10 border-line; }
+  .prose table { @apply w-full border-collapse text-left text-sm; }
+  .prose th, .prose td { @apply border-b border-line px-3 py-2; }
+  .prose code { @apply rounded bg-paper px-1.5 py-0.5 font-mono text-[0.9em]; }
+
+  /* the_posts_pagination() */
+  .pagination .nav-links { @apply mt-10 flex flex-wrap items-center gap-2; }
+  .pagination .page-numbers { @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-line bg-white px-4 text-sm font-semibold text-navy-900 transition-colors hover:border-brand-600 hover:text-brand-700; }
+  .pagination .page-numbers.current { @apply border-navy-900 bg-navy-900 text-white; }
+  .pagination .page-numbers.dots { @apply border-transparent bg-transparent; }
+
+  /* Board-level lab: workshop photo under a navy shade (text side darker) */
+  .lab-photo { @apply pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70; object-position: 60% 70%; }
+  .lab-photo-shade {
+    @apply pointer-events-none absolute inset-0;
+    background: linear-gradient(180deg, rgba(6,20,46,.93) 0%, rgba(6,20,46,.84) 60%, rgba(6,20,46,.6) 100%);
+  }
+  @media (min-width: 900px) {
+    .lab-photo-shade { background: linear-gradient(90deg, rgba(6,20,46,.95) 0%, rgba(6,20,46,.82) 42%, rgba(6,20,46,.35) 100%); }
+  }
+
   .instore-tile {
     @apply flex min-h-[112px] flex-col justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-white transition duration-300;
   }

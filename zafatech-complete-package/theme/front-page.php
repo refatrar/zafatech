@@ -1,7 +1,14 @@
 <?php
 get_header();
 $zt_lang = zt_current_lang();
-$zt_home = get_page_by_path($zt_lang === 'fr' ? 'fr/accueil' : 'home');
+// Settings → Reading → "Your homepage displays" picks the page. Without a
+// multilingual plugin, ?lang= swaps to its linked translation.
+$zt_home = (is_page() && get_queried_object() instanceof WP_Post) ? get_queried_object() : null;
+if ($zt_home && !zt_has_ml_plugin() && zt_page_lang($zt_home) !== $zt_lang) {
+    $zt_translation = get_post((int) get_post_meta($zt_home->ID, '_zt_translation_id', true));
+    if ($zt_translation && $zt_translation->post_status === 'publish') $zt_home = $zt_translation;
+}
+if (!$zt_home) $zt_home = get_page_by_path($zt_lang === 'fr' ? 'fr/accueil' : 'home');
 if ($zt_home) {
     $zt_original_post = isset($GLOBALS['post']) ? $GLOBALS['post'] : null;
     $GLOBALS['post'] = $zt_home;

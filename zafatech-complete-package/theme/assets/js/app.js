@@ -12,6 +12,8 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ZT_LANG = (window.ztStrings && window.ztStrings.lang) === 'fr' ? 'fr' : 'en';
+  // Shop phone from Customizer → Zafa Tech: Contact & Social (static build falls back to the default).
+  const ZT_PHONE = (window.ztStrings && window.ztStrings.phone) || '07 53 19 40 03';
   const MSG = (ZT_LANG === 'fr') ? {
     enterName: 'Veuillez saisir votre nom.',
     enterPhone: 'Veuillez saisir un numéro de téléphone.',
@@ -29,7 +31,7 @@
     carried: 'Détails ajoutés au formulaire.',
     carriedTitle: 'Détails transférés',
     requestSent: 'Votre demande a bien été envoyée.',
-    requestFailed: 'Une erreur est survenue. Veuillez réessayer ou nous appeler au 07 53 19 40 03.'
+    requestFailed: `Une erreur est survenue. Veuillez réessayer ou nous appeler au ${ZT_PHONE}.`
   } : {
     enterName: 'Please enter your name.',
     enterPhone: 'Please enter a phone number.',
@@ -47,21 +49,21 @@
     carried: 'Your device and symptoms have been added to the form.',
     carriedTitle: 'Details carried over',
     requestSent: 'We’ll be in touch shortly.',
-    requestFailed: 'Something went wrong. Please try again or call us on 07 53 19 40 03.'
+    requestFailed: `Something went wrong. Please try again or call us on ${ZT_PHONE}.`
   };
 
   const FR_COPY = {
     'Laptop': 'Ordinateur portable', 'Tablet': 'Tablette', 'Desktop PC': 'Ordinateur fixe', 'Smartwatch': 'Montre connectée', 'Other': 'Autre', 'Board': 'Carte mère',
-    'From cracked glass to phones that won’t switch on.': 'De l’écran cassé au téléphone qui ne s’allume plus.',
+    'From cracked glass to phones that won’t switch on.': 'De l’écran fissuré au téléphone qui ne s’allume plus.',
     'Windows laptops and MacBooks — hardware and software.': 'Ordinateurs Windows et MacBook — matériel et logiciel.',
     'Glass, batteries and connectors on popular tablets.': 'Écrans, batteries et connecteurs des tablettes courantes.',
     'Towers, all-in-ones and custom builds.': 'Tours, tout-en-un et ordinateurs sur mesure.',
     'Home and handheld consoles, plus controllers.': 'Consoles de salon, portables et manettes.',
     'Screens and batteries on popular smartwatches.': 'Écrans et batteries des montres connectées courantes.',
     'Not on the list? Tell us what’s going on.': 'Votre appareil n’est pas listé ? Décrivez-nous le problème.',
-    'Cracked or unresponsive screen': 'Écran cassé ou tactile inactif', 'Battery drains fast or swells': 'Batterie qui se décharge vite ou gonfle',
-    'Won’t charge / loose port': 'Ne charge plus / port desserré', 'Camera or lens damage': 'Appareil photo ou objectif endommagé',
-    'Broken back glass': 'Vitre arrière cassée', 'Water or liquid damage': 'Dégât liquide', 'No sound or microphone issue': 'Problème de son ou de microphone',
+    'Cracked or unresponsive screen': 'Écran fissuré ou tactile ne répondant plus', 'Battery drains fast or swells': 'La batterie se décharge vite ou gonfle',
+    'Won’t charge / loose port': 'Ne charge plus / connecteur de charge défectueux', 'Camera or lens damage': 'Appareil photo ou lentille endommagé(e)',
+    'Broken back glass': 'Vitre arrière cassée', 'Water or liquid damage': 'Dégât des eaux ou infiltration de liquide', 'No sound or microphone issue': 'Problème de son ou de micro',
     'Buttons not working': 'Boutons défectueux', 'Won’t power on': 'Ne s’allume plus', 'Software or data problem': 'Problème logiciel ou de données',
     'Broken or flickering screen': 'Écran cassé ou scintillant', 'Keyboard or trackpad fault': 'Clavier ou pavé tactile défectueux',
     'Battery not holding charge': 'Batterie qui ne tient plus la charge', 'Won’t charge / DC jack': 'Ne charge plus / connecteur d’alimentation',

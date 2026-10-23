@@ -8,7 +8,9 @@ get_header();
         <h2 class="text-2xl font-bold"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <div class="mt-2 text-muted"><?php the_excerpt(); ?></div>
       </article>
-    <?php endwhile; else : ?>
+    <?php endwhile; ?>
+    <?php the_posts_pagination(array('mid_size' => 1, 'prev_text' => esc_html(zt_ui('Previous', 'Précédent')), 'next_text' => esc_html(zt_ui('Next', 'Suivant')), 'screen_reader_text' => zt_ui('Posts navigation', 'Navigation des articles'))); ?>
+    <?php else : ?>
       <p><?php echo esc_html(zt_ui('No content found.', 'Aucun contenu trouvé.')); ?></p>
     <?php endif; ?>
   </div>

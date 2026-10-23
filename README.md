@@ -12,8 +12,18 @@
 3. Upload `dist/zafatech-theme.zip` under Appearance → Themes → Add New → Upload. Activate "Zafa Tech".
 4. For bilingual support, install and activate Polylang (recommended) or WPML. Create English and French languages if required.
 5. In WordPress admin, go to Tools → Zafa Tech Demo and click "Import Demo Content". Running it again is safe; existing items are skipped.
-6. Assign menus if not already assigned by the importer: Appearance → Menus → Primary.
+6. Assign menus if not already assigned by the importer: Appearance → Menus → Manage Locations.
 7. Set permalinks to "Post name" for clean URLs.
+
+## Theme customization (Appearance → Customize)
+- **Site Identity → Logo**: header logo (light background). Defaults to the bundled navy Zafa Tech logo.
+- **Site Identity → Footer logo (dark background)**: logo on the navy footer. Defaults to the bundled white logo.
+- **Site Identity → Site Title**: used as the logo alt text and in the footer copyright.
+- **Site Identity → Site Icon**: favicon. Defaults to the bundled device-mark icon.
+- **Zafa Tech: Contact & Social**: phone, email, address, opening hours (FR/EN) and Instagram/Facebook/TikTok URLs, shown in the header, mobile menu and footer. Empty hours and social links keep the `[ ]` placeholders.
+- **Menus**: Primary, Footer and Mobile locations. Without Polylang/WPML each location has an English and a French slot (e.g. "Primary Menu (French)"); with them, assign one menu per language. With no menu assigned, the built-in on-page links are shown. Only top-level items are displayed.
+- **Homepage Settings**: the page chosen in "Your homepage displays → A static page" is shown; `?lang=en` / `?lang=fr` swaps to its linked translation.
+- Homepage body content is edited in Pages → Accueil / Home. Its phone, email, address and map links are filled from **Zafa Tech: Contact & Social** when the demo is imported or refreshed (Tools → Zafa Tech Demo → Refresh Homepage Demo Layout); after that they are ordinary page content.
 
 ## Multilingual approach
 - Theme UI labels use WordPress i18n (`__()` / `zt_t()`) and support English/French.

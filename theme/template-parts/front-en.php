@@ -238,6 +238,8 @@
 
     <!-- ============================== BOARD-LEVEL LAB ============================== -->
     <section id="lab" class="on-dark section relative overflow-hidden bg-navy-950 text-white" aria-labelledby="lab-title">
+      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/zafatech-workshop.webp" width="1536" height="864" loading="lazy" decoding="async" alt="" aria-hidden="true" class="lab-photo" />
+      <div class="lab-photo-shade" aria-hidden="true"></div>
       <div class="grid-bg-dark pointer-events-none absolute inset-0" aria-hidden="true"></div>
       <svg class="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
         <g stroke="#22D3EE" stroke-opacity=".22" stroke-width="1.5" stroke-linecap="round">
@@ -326,8 +328,8 @@
                    alt="The Zafa Tech shop front on Rue Littré: navy façade with a white sign listing repairs, accessories, photocopying and printing, and a window full of phone accessories."
                    class="aspect-[4/3] w-full rounded-[1.25rem] object-cover object-top" />
               <figcaption class="flex items-center justify-between gap-3 px-3 py-3 text-sm">
-                <span class="font-semibold text-navy-900">18 Rue Littré, 75006 Paris</span>
-                <a class="inline-flex items-center gap-1 font-semibold text-brand-700 hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=18+Rue+Littr%C3%A9+75006+Paris" target="_blank" rel="noopener">Directions<svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-external"/></svg></a>
+                <span class="font-semibold text-navy-900"><?php echo esc_html(zt_mod('zt_address')); ?></span>
+                <a class="inline-flex items-center gap-1 font-semibold text-brand-700 hover:underline" href="<?php echo esc_url(zt_map_url()); ?>" target="_blank" rel="noopener">Directions<svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-external"/></svg></a>
               </figcaption>
             </figure>
           </div>
@@ -467,7 +469,7 @@
         <ul id="refurb-grid" class="mobile-card-rail mt-10 sm:mt-12 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-3" aria-live="polite">
           <!-- Rendered by js/app.js from REFURB_ITEMS (demo data) -->
         </ul>
-        <noscript><p class="mt-8 text-muted">Please call us on 07 53 19 40 03 for our current refurbished stock.</p></noscript>
+        <noscript><p class="mt-8 text-muted">Please call us on <?php echo esc_html(zt_mod('zt_phone')); ?> for our current refurbished stock.</p></noscript>
       </div>
     </section>
 
@@ -488,7 +490,7 @@
           </ul>
           <div class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
             <p class="text-sm text-white/60">Prefer to talk?</p>
-            <a href="tel:+33753194003" class="mt-1 inline-flex items-center gap-2 font-display text-2xl font-bold text-white hover:text-signal"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg>07 53 19 40 03</a>
+            <a href="<?php echo esc_attr(zt_tel_href()); ?>" class="mt-1 inline-flex items-center gap-2 font-display text-2xl font-bold text-white hover:text-signal"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg><?php echo esc_html(zt_mod('zt_phone')); ?></a>
           </div>
         </div>
 
@@ -584,7 +586,7 @@
           <h2 id="faq-title" class="h-section mt-4">Good questions, straight answers.</h2>
           <p class="lead mt-5">Can't find what you're looking for? Call us or drop by the shop.</p>
           <div class="mt-8 flex flex-col gap-3 xs:flex-row lg:flex-col xl:flex-row">
-            <a href="tel:+33753194003" class="btn btn-primary"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg>Call the shop</a>
+            <a href="<?php echo esc_attr(zt_tel_href()); ?>" class="btn btn-primary"><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg>Call the shop</a>
             <a href="#contact" class="btn btn-ghost">Contact details</a>
           </div>
         </div>
@@ -596,7 +598,7 @@
           </div>
           <div class="faq-item">
             <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">How much will my repair cost?<span class="faq-plus" aria-hidden="true"></span></button></h3>
-            <div class="faq-panel" id="faq-a2" role="region" aria-labelledby="faq-q2"><div><p class="px-5 pb-6 text-muted sm:px-6">It depends on the device, the fault and the part. After diagnosis we give you a clear quote, and no work begins until you approve it.</p></div></div>
+            <div class="faq-panel" id="faq-a2" role="region" aria-labelledby="faq-q2"><div><p class="px-5 pb-6 text-muted sm:px-6">It depends on the device, the fault and the part. After diagnosis we give you a clear quote, and no work begins until you approve it. For screens you can often choose the part quality — for iPhone a standard LCD, an Incell LCD or an OLED / original-quality panel; for Samsung an aftermarket LCD or the original OLED service pack — and we quote each option.</p></div></div>
           </div>
           <div class="faq-item">
             <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">How long does a repair take?<span class="faq-plus" aria-hidden="true"></span></button></h3>
@@ -616,7 +618,7 @@
           </div>
           <div class="faq-item">
             <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">Which brands do you repair?<span class="faq-plus" aria-hidden="true"></span></button></h3>
-            <div class="faq-panel" id="faq-a7" role="region" aria-labelledby="faq-q7"><div><p class="px-5 pb-6 text-muted sm:px-6">We work on most major smartphone, tablet, laptop and console brands. Tell us your exact model in the request form and we'll confirm.</p></div></div>
+            <div class="faq-panel" id="faq-a7" role="region" aria-labelledby="faq-q7"><div><p class="px-5 pb-6 text-muted sm:px-6">We work on most major smartphone, tablet, laptop and console brands. For phones, we source screens, back glass and charging ports for every iPhone from the iPhone 5 to the iPhone 17 series, and screens and charging ports for Samsung Galaxy models from the Galaxy S8 to the Galaxy Z Fold7. Tell us your exact model in the request form and we'll confirm.</p></div></div>
           </div>
           <div class="faq-item">
             <h3><button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">What else can I do at the shop?<span class="faq-plus" aria-hidden="true"></span></button></h3>
@@ -639,17 +641,17 @@
             <li class="card flex flex-col p-6" data-reveal="fadeInUp">
               <span class="service-icon !mb-4"><svg class="icon"><use href="#i-call"/></svg></span>
               <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">Phone</h3>
-              <a href="tel:+33753194003" class="mt-1 font-display text-xl font-bold text-navy-900 hover:text-brand-700">07 53 19 40 03</a>
+              <a href="<?php echo esc_attr(zt_tel_href()); ?>" class="mt-1 font-display text-xl font-bold text-navy-900 hover:text-brand-700"><?php echo esc_html(zt_mod('zt_phone')); ?></a>
             </li>
             <li class="card flex flex-col p-6" data-reveal="fadeInUp" data-delay="60">
               <span class="service-icon !mb-4"><svg class="icon"><use href="#i-mail"/></svg></span>
               <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">Email</h3>
-              <a href="mailto:zafatechparis@gmail.com" class="mt-1 break-all font-display text-lg font-bold text-navy-900 hover:text-brand-700">zafatechparis@gmail.com</a>
+              <a href="<?php echo esc_attr('mailto:' . antispambot(zt_mod('zt_email'))); ?>" class="mt-1 break-all font-display text-lg font-bold text-navy-900 hover:text-brand-700"><?php echo esc_html(antispambot(zt_mod('zt_email'))); ?></a>
             </li>
             <li class="card flex flex-col p-6" data-reveal="fadeInUp">
               <span class="service-icon !mb-4"><svg class="icon"><use href="#i-pin"/></svg></span>
               <h3 class="text-sm font-semibold uppercase tracking-wider text-muted">Address</h3>
-              <p class="mt-1 font-display text-lg font-bold text-navy-900">18 Rue Littré<br />75006 Paris</p>
+              <p class="mt-1 font-display text-lg font-bold text-navy-900"><?php echo implode('<br />', array_map('esc_html', array_map('trim', explode(',', zt_mod('zt_address'), 2)))); ?></p>
             </li>
             <li class="card flex flex-col p-6" data-reveal="fadeInUp" data-delay="60">
               <span class="service-icon !mb-4"><svg class="icon"><use href="#i-clock"/></svg></span>
@@ -664,7 +666,7 @@
             <p class="mt-3 max-w-sm text-white/70">Book online so we're ready for your device, or get directions and drop by.</p>
             <div class="relative mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <a href="#booking" class="btn btn-light">Book a Repair<svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=18+Rue+Littr%C3%A9+75006+Paris" target="_blank" rel="noopener" class="btn btn-outline-light"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
+              <a href="<?php echo esc_url(zt_map_url()); ?>" target="_blank" rel="noopener" class="btn btn-outline-light"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
             </div>
           </div>
         </div>
