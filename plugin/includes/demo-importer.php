@@ -241,7 +241,7 @@ function zt_import_demo_content($refresh_existing = false) {
 
     // Custom post types: services
     $services_data = array(
-        array('Smartphone Repair', 'Réparation Smartphone', 'Screens, back glass, batteries, charging ports, cameras, speakers and microphones.', 'Écrans, vitre arrière, batteries, connecteurs de charge, appareils photo, haut-parleurs et micros.'),
+        array('Smartphone Repair', 'Réparation smartphone', 'Screens, back glass, batteries, charging ports, cameras, speakers and microphones.', 'Écrans, vitre arrière, batteries, connecteurs de charge, appareils photo, haut-parleurs et micros.'),
         array('Laptop & MacBook Repair', 'Réparation ordinateur portable et MacBook', 'Displays, keyboards, batteries, DC jacks, overheating, SSD and RAM upgrades.', 'Écrans, claviers, batteries, connecteurs d’alimentation, surchauffe, évolutions SSD et RAM.'),
         array('Tablet Repair', 'Réparation tablette', 'Cracked glass, digitizers, batteries and charging connectors.', 'Vitre cassée, écrans tactiles, batteries et connecteurs de charge.'),
         array('Micro-Soldering', 'Micro-soudure', 'Component-level work on logic boards: connectors, power circuits and traces.', 'Interventions de précision sur carte mère : connecteurs, circuits d’alimentation et pistes.'),

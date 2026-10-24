@@ -121,7 +121,7 @@
           <li class="sm:col-span-2" data-reveal="fadeInUp">
             <article class="service-card bg-gradient-to-br from-white to-brand-50/70">
               <span class="service-icon"><svg class="icon"><use href="#i-phone"/></svg></span>
-              <h3 class="text-xl font-bold">Réparation Smartphone</h3>
+              <h3 class="text-xl font-bold">Réparation smartphone</h3>
               <p class="mt-2 max-w-md text-muted">Écrans, vitre arrière, batteries, connecteurs de charge, appareils photo, haut-parleurs et micros — ainsi que les dégâts liquides et téléphones qui ne s'allument plus.</p>
               <a href="#booking" class="service-link" data-prefill-device="smartphone">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -129,7 +129,7 @@
           <li class="sm:col-span-2" data-reveal="fadeInUp" data-delay="80">
             <article class="service-card bg-gradient-to-br from-white to-brand-50/70">
               <span class="service-icon"><svg class="icon"><use href="#i-laptop"/></svg></span>
-              <h3 class="text-xl font-bold">Réparation Ordinateur Portable &amp; MacBook</h3>
+              <h3 class="text-xl font-bold">Réparation ordinateur portable &amp; MacBook</h3>
               <p class="mt-2 max-w-md text-muted">Écrans, claviers, batteries, connecteurs d'alimentation et charnières, surchauffe, plus évolutions SSD et RAM pour donner une seconde vie à votre machine.</p>
               <a href="#booking" class="service-link" data-prefill-device="laptop">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -137,7 +137,7 @@
           <li data-reveal="fadeInUp">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-tablet"/></svg></span>
-              <h3 class="text-lg font-bold">Réparation Tablette</h3>
+              <h3 class="text-lg font-bold">Réparation tablette</h3>
               <p class="mt-2 text-[0.95rem] text-muted">Vitre cassée, écrans tactiles, batteries fatiguées et connecteurs de charge usés.</p>
               <a href="#booking" class="service-link" data-prefill-device="tablet">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -145,7 +145,7 @@
           <li data-reveal="fadeInUp" data-delay="60">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-desktop"/></svg></span>
-              <h3 class="text-lg font-bold">Réparation Ordinateur Fixe</h3>
+              <h3 class="text-lg font-bold">Réparation ordinateur fixe</h3>
               <p class="mt-2 text-[0.95rem] text-muted">PC de bureau qui ne démarrent pas, rament ou nécessitent un changement/amélioration de composant.</p>
               <a href="#booking" class="service-link" data-prefill-device="desktop">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -153,7 +153,7 @@
           <li data-reveal="fadeInUp" data-delay="120">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-gamepad"/></svg></span>
-              <h3 class="text-lg font-bold">Réparation Console de Jeux</h3>
+              <h3 class="text-lg font-bold">Réparation console de jeux</h3>
               <p class="mt-2 text-[0.95rem] text-muted">Ports HDMI et USB, lecteurs de disques, surchauffe et problèmes de manettes.</p>
               <a href="#booking" class="service-link" data-prefill-device="console">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -161,7 +161,7 @@
           <li data-reveal="fadeInUp" data-delay="180">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-watch"/></svg></span>
-              <h3 class="text-lg font-bold">Réparation Montre Connectée</h3>
+              <h3 class="text-lg font-bold">Réparation montre connectée</h3>
               <p class="mt-2 text-[0.95rem] text-muted">Vitre d'écran, batteries et problèmes de charge sur les montres connectées les plus courantes.</p>
               <a href="#booking" class="service-link" data-prefill-device="smartwatch">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -169,7 +169,7 @@
           <li data-reveal="fadeInUp">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-database"/></svg></span>
-              <h3 class="text-lg font-bold">Récupération de Données</h3>
+              <h3 class="text-lg font-bold">Récupération de données</h3>
               <p class="mt-2 text-[0.95rem] text-muted">Récupération de vos photos et fichiers à partir de téléphones, disques durs et ordinateurs endommagés.</p>
               <a href="#booking" class="service-link" data-prefill-device="data">Demander une réparation<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -185,7 +185,7 @@
           <li data-reveal="fadeInUp" data-delay="120">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-diagnose"/></svg></span>
-              <h3 class="text-lg font-bold">Logiciel &amp; Diagnostic</h3>
+              <h3 class="text-lg font-bold">Logiciel &amp; diagnostic</h3>
               <p class="mt-2 text-[0.95rem] text-muted">Lenteurs, pannes, réinstallation du système, nettoyage de virus et configuration de nouveaux appareils.</p>
               <a href="#booking" class="service-link" data-prefill-device="other">Demander de l'aide<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
@@ -193,7 +193,7 @@
           <li data-reveal="fadeInUp" data-delay="180">
             <article class="service-card">
               <span class="service-icon"><svg class="icon"><use href="#i-refresh"/></svg></span>
-              <h3 class="text-lg font-bold">Appareils Reconditionnés</h3>
+              <h3 class="text-lg font-bold">Appareils reconditionnés</h3>
               <p class="mt-2 text-[0.95rem] text-muted">Téléphones, ordinateurs et tablettes vérifiés et remis à neuf — demandez nos stocks disponibles.</p>
               <a href="#refurbished" class="service-link">Voir nos reconditionnés<svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </article>
